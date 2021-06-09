@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindset Journal</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+
+<h2>extensions</h2>
     {% for journal in journal %}
 
         {{ journal.date }}<br>
@@ -13,5 +9,4 @@
         {{ journal.text }}
 
     {% endfor %}
-</body>
-</html>
+{% endblock %} 
