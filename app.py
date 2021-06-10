@@ -24,8 +24,25 @@ def get_journal():
     return render_template("journal.html", journal=journal)
 
 
+@app.route("/add_entry", methods=["GET", "POST"])
+def add_entry():
+    if request.method == "POST":
+        journal = {
+            "date": request.form.get("date"),
+            "mood": request.form.get("mood"),
+            "text": request.form.get("text")
+        }
+        mongo.db.journal.insert_one(journal)
+        flash("Entry Successfully Added")
+        return redirect(url_for("get_journal"))
+
+    date = mongo.db.date.find().sort("date", 1)
+    return render_template("add_entry.html", date=date)
+
+
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-        
