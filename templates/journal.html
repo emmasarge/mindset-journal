@@ -1,12 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>extensions</h2>
-    {% for journal in journal %}
 
-        {{ journal.date }}<br>
-        {{ journal.mood }}<br>
-        {{ journal.text }}
+<section class="journal-title">
+    <h1>Journal</h1>
+</section>
+
+<section class="journal-entries">
+
+    {% for journal in journal %}
+        {% if journal|length > 0 %}
+    <ul class="collapsible">
+        <li>
+            <div class="collapsible-header">
+               <strong>Date </strong>:  {{ journal.date }} 
+        {% endif %}
+            </div>
+            <div class="collapsible-body"><span>
+                <p>Mood: <em>{{ journal.mood }}</em></p>
+                <p>{{ journal.text }}</p>
+            </span>
+        </div>
+        </li>
+    </ul>
 
     {% endfor %}
-{% endblock %} 
+
+</section>
+
+<section class="journal input">
+
+
+</section>
+{% endblock %}
