@@ -27,6 +27,7 @@
                     <li><a href="#">Gratitudes</a></li>
                     <li><a href="#">Journal</a></li>
                     <li><a href="#">Community</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -37,7 +38,7 @@
         <li><a href="#">Gratitudes</a></li>
         <li><a href="#">Journal</a></li>
         <li><a href="#">Community</a></li>
-        <li><a href="#">Mobile</a></li>
+        <li><a href="#">Contact</a></li>
     </ul>
 
  </header>
@@ -52,16 +53,17 @@
     <footer>
 
     </footer>
-
-    <!--JQUERY CDN-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    <!--JQUERY-->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!--MATERIALIZE CDN-->
+    <!--MATERIALIZE CSS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!--CUSTOM JAVASCRIPT-->
-      <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <!--CUSTOM BASE JS-->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+   
     {% block scripts %}
     {% endblock %}
+
 
 </body>
 
