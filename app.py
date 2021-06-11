@@ -40,6 +40,20 @@ def add_entry():
     return render_template("add_entry.html", date=date)
 
 
+@app.route("/edit_entry/<journal_id>", methods=["GET", "POST"])
+def edit_entry(journal_id):
+    if request.method == "POST":
+        submit = {
+            "date": request.form.get("date"),
+            "mood": request.form.get("mood"),
+            "text": request.form.get("text")
+        }
+        mongo.db.journal.update({"_id": ObjectId(journal_id)}, submit)
+        flash("Journal Successfully Updated")
+    
+    journal = mongo.db.journal.find_one({"_id": ObjectId(journal_id)})
+    date = mongo.db.date.find().sort("date", 1)
+    return render_template("edit_entry.html", journal=journal, date=date)
 
 
 if __name__ == "__main__":

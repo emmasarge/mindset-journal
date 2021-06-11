@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="center-align">Edit Journal Entry</h3>
+
+
+<div class="row card-panel grey lighten-5">
+    <form class="col s12" method="POST" action="{{ url_for('edit_entry', journal_id=journal._id) }}">
+        <!-- journal entry selector-->
+        <div class="row">
+            <div class="input-field col s12">
+    
+                <select id="date" name="date" class="validate" required>
+                    <option value="" disabled>Choose date</option>
+                    {% for dates in date %}
+                        {% if dates.date == journal.date %}
+                              <option value="{{ dates.date }}" selected>{{ dates.date }}</option>
+                        {% else %}
+                            <option value="{{ dates.date }}">{{ dates.date }}</option>
+                        {% endif %}
+                    {% endfor %}
+            
+                </select>
+                <label for="date">Entry</label>
+            </div>
+        </div>
+        <!-- mood input-->
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="mood" value = "{{ journal.mood }}" name="mood" minlength="4" maxlength="50" type="text" class="validate"
+                    required>
+                <label for="mood">Mood</label>
+            </div>
+        </div>
+        <!-- journal textbox-->
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="text" name="text" minlength="5" maxlength="2000"
+                    class="materialize-textarea" required>{{- journal.text -}}</textarea>
+                <label for="text">Entry text</label>
+
+            </div>
+        </div>
+      
+   
+        <!-- submit button-->
+        <div class="row">
+            <div class="col s12 center-align">
+                <!-- cancel button -->
+                <a href="{{ url_for('get_journal') }}" class="btn-large text-shadow ">Cancel
+        
+                </a>
+                <button type="submit" class="btn-large">
+                    Edit Entry
+
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

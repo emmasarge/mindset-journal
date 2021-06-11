@@ -8,7 +8,8 @@
 
 <div class="row">
     <div class="col s12 center-align">
-        <a href="{{ url_for('add_entry') }}" class="btn-large deep-orange darken-4 text-shadow ">Add Entry</a>
+        <a href="{{ url_for('add_entry') }}" class="btn-large text-shadow ">Add New Entry</a>
+        <a href="{{ url_for('edit_entry', journal_id=journal._id) }}" class="waves-effect waves-light btn-small ">Edit</a>
 
     </div>
 </div>
