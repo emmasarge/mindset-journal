@@ -3,6 +3,7 @@ from flask import (
     Flask, flash, render_template, redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
@@ -18,42 +19,33 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/get_journal")
-def get_journal():
-    journal = mongo.db.journal.find()
-    return render_template("journal.html", journal=journal)
+@app.route("/homepage")
+def homepage():
+    return render_template("homepage.html")
 
-
-@app.route("/add_entry", methods=["GET", "POST"])
-def add_entry():
+@app.route("/register", methods=["GET", "POST"])
+def register():
     if request.method == "POST":
-        journal = {
-            "date": request.form.get("date"),
-            "mood": request.form.get("mood"),
-            "text": request.form.get("text")
+        # Check if username already exists in database
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("user_name").lower()})
+
+        if existing_user:
+            flash(u"Username already exists")
+            return redirect(url_for("register"))
+        
+        register = {	
+            "username": request.form.get("username").lower(),	
+            "password": generate_password_hash(request.form.get("password"))	
         }
-        mongo.db.journal.insert_one(journal)
-        flash("Entry Successfully Added")
-        return redirect(url_for("get_journal"))
+        mongo.db.users.insert_one(register)
 
-    date = mongo.db.date.find().sort("date", 1)
-    return render_template("add_entry.html", date=date)
+        # Put the new user into 'session' cookie
+        session["user"] = request.form.get("username").lower()
+        flash("Registration Successful!") 
+        return redirect(url_for("profile", username=session["user"]))
 
-
-@app.route("/edit_entry/<journal_id>", methods=["GET", "POST"])
-def edit_entry(journal_id):
-    if request.method == "POST":
-        submit = {
-            "date": request.form.get("date"),
-            "mood": request.form.get("mood"),
-            "text": request.form.get("text")
-        }
-        mongo.db.journal.update({"_id": ObjectId(journal_id)}, submit)
-        flash("Journal Successfully Updated")
-    
-    journal = mongo.db.journal.find_one({"_id": ObjectId(journal_id)})
-    date = mongo.db.date.find().sort("date", 1)
-    return render_template("edit_entry.html", journal=journal, date=date)
+    return render_template("register.html")
 
 
 if __name__ == "__main__":
