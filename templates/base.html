@@ -20,27 +20,20 @@
 <body>
     <!--NAVBAR-->
     <header>
-        <nav class="nav-extended">
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Mindset Journal</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('get_journal') }}">Gratitudes</a></li>
-                    <li><a href="#">Journal</a></li>
-                    <li><a href="#">Community</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-   
-
-    <!--MOBILE DROPDOWN NAV-->
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="#">Gratitudes</a></li>
-        <li><a href="#">Journal</a></li>
-        <li><a href="#">Community</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand flex" href="#">Mindset Journal</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="#">About</a>
+        <a class="nav-link" href="#">Login/Register</a>
+      </div>
+    </div>
+  </div>
+</nav>
 
  </header>
 
