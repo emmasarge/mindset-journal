@@ -1,6 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
 
+<section class="journal-page">
+    <h1>Your Journal</h1>
+<!--Journal Input Form-->
+<form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Date</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Mood</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>Happy</option>
+      <option>Sad</option>
+      <option>Disconnected</option>
+      <option>Hopeful</option>
+      <option>Angry</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Start your journal</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>
 
+
+</section>
 
 {% endblock %}
