@@ -2,50 +2,5 @@
 {% block content %}
 
 
-<section class="journal-title center-align">
-    <h1>Journal</h1>
-</section>
 
-<div class="row">
-    <div class="col s12 center-align">
-        <a href="{{ url_for('add_entry') }}" class="btn-large text-shadow ">Add New Entry</a>
-        <a href="{{ url_for('edit_entry', journal_id=journal._id) }}" class="waves-effect waves-light btn-small ">Edit</a>
-
-    </div>
-</div>
-<section class="search-journal">
-
-</section>
-
-
-<section class="journal-entries">
-
-    {% for journal in journal %}
-       
-    {% if journal|length > 0 %}
-
-    <ul class="collapsible">
-        <li>
-            <div class="collapsible-header">
-               <strong>Date </strong>:  {{ journal.date }} 
-       
-            </div>
-    {% endif %}
-
-            <div class="collapsible-body"><span>
-                <p>Mood: <em>{{ journal.mood }}</em></p>
-                <p>{{ journal.text }}</p>
-            </span>
-        </div>
-        </li>
-    </ul>
-
-    {% endfor %}
-
-</section>
-
-<section class="journal input">
-
-
-</section>
 {% endblock %}
