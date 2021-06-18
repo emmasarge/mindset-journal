@@ -1,50 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">Add New Entry</h3>
 
-
-<div class="row card-panel grey lighten-5">
-    <form class="col s12" method="POST" action="{{ url_for('add_entry') }}">
-
-        <!--Entry Date Picker-->
-           <div class="row">
-            <div class="input-field col s12">
-                <input id="date" name="date" type="text" class="datepicker validate" required>
-                <label for="date">Entry Date</label>
-            </div>
-        </div>
-        <!-- Mood input-->
-        <div class="row">
-            <div class="input-field col s12">
-                 <input id="mood" name="mood" minlength="3" maxlength="20" type="text" class="validate"
-                    required>
-                     <label for="mood">Mood</label>
-            </div>
-        </div>
-        <!-- task description textbox-->
-        <div class="row">
-            <div class="input-field col s12">
-                <textarea id="text" name="text" minlength="5" maxlength="5000"
-                    class="materialize-textarea" required></textarea>
-                <label for="text">Write</label>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-     
-            </div>
-        </div>
-        <!-- submit button-->
-        <div class="row">
-            <div class="col s12 center-align">
-                <button type="submit" class="btn-large">
-                    Add Entry
-                </button>
-            </div>
-        </div>
-    </form>
-</div>
 
 {% endblock %}
