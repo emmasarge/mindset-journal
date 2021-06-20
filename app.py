@@ -23,6 +23,14 @@ mongo = PyMongo(app)
 def homepage():
     return render_template("homepage.html")
 
+
+@app.route("/entry_collection")
+def entry_collection():
+    journal = list(mongo.db.journal.find())
+    return render_template("entry_collection.html", journal=journal)
+
+
+
 # write journal entry
 @app.route("/journal", methods=["GET", "POST"])
 def journal():
@@ -40,7 +48,23 @@ def journal():
     date = mongo.db.journal.find().sort("date", 1)
     return render_template("journal.html", date=date)
 
+#edit journal entry
+@app.route("/edit_journal/<journal_id>", methods=["GET", "POST"])
+def edit_journal(journal_id):
+    if request.method == "POST":
+        submit = {
+            "date": request.form.get("date"),
+            "title": request.form.get("title"),
+            "mood": request.form.get("mood"),
+            "text": request.form.get("text")
+            }
 
+        mongo.db.journal.update({"_id": ObjectId(journal_id)}, submit)
+        flash("Entry Successfully Updated")
+      
+    journal = mongo.db.journal.find_one({"_id": ObjectId(journal_id)})
+    title = mongo.db.title.find().sort("title", 1)
+    return render_template("edit_journal.html", journal=journal, title=title)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
