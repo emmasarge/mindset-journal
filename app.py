@@ -24,7 +24,7 @@ def homepage():
     return render_template("homepage.html")
 
 # write journal entry
-@app.route("/journal", method=["GET", "POST"])
+@app.route("/journal", methods=["GET", "POST"])
 def journal():
     if request.method == "POST":
         journal = {
@@ -38,7 +38,7 @@ def journal():
         return redirect(url_for("homepage"))
 
     date = mongo.db.journal.find().sort("date", 1)
-    return render_template("journal", date=date)
+    return render_template("journal.html", date=date)
 
 
 
