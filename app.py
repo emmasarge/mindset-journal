@@ -23,28 +23,47 @@ mongo = PyMongo(app)
 def homepage():
     return render_template("homepage.html")
 
+# write journal entry
+@app.route("/journal", method=["GET", "POST"])
+def journal():
+    if request.method == "POST":
+        journal = {
+            "date": request.form.get("date"),
+            "title": request.form.get("title"),
+            "mood": request.form.get("mood"),
+            "text": request.form.get("text")
+            }
+        mongo.db.tasks.insert_one(journal)
+        flash("Journal entry added")
+        return redirect(url_for("homepage"))
+
+    date = mongo.db.journal.find().sort("date", 1)
+    return render_template("journal", date=date)
+
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
         # Check if username already exists in database
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("user_name").lower()})
+            {"username": request.form.get("username").lower()})
 
         if existing_user:
             flash(u"Username already exists")
             return redirect(url_for("register"))
 
         register = {	
-            "username": request.form.get("username").lower(),	
-            "password": generate_password_hash(request.form.get("password"))	
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
         }
 
         mongo.db.users.insert_one(register)
 
         # Put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!") 
-        return redirect(url_for("profile", username=session["user"]))
+        flash("Registration Successful!")
+        return redirect(url_for("homepage", username=session["user"]))
 
     return render_template("register.html")
 
@@ -60,11 +79,11 @@ def login():
             # ensure hashed password matches user input
             if check_password_hash(existing_user["password"], request.form.get
             ("password")):
-                session["user"] = request.form.get("user_name").lower()
+                session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(
-                        request.form.get("user_name")))
+                        request.form.get("username")))
                 return redirect(url_for(
-                        "profile", username=session["user"]))
+                        "homepage", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")

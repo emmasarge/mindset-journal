@@ -31,12 +31,26 @@
                 <a class="nav-link active" aria-current="page" href="#">About</a>
                 <a class="nav-link" href="{{ url_for('login') }}">Login</a>
                 <a class="nav-link" href="{{ url_for('register') }}">Join</a>
+                 <a class="nav-link" href="{{ url_for('journal') }}">Journal</a>
             </div>
             </div>
         </div>
         </nav>
 
  </header>
+       <section>
+        <!--where flash images will be contained-->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <row class="flashes">
+            <h4 class="center-align deep-orange lighten-4">{{ message }}</h4>
+        </row>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </section>
+
 
 
     <div class="main-content">
