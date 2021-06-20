@@ -33,7 +33,7 @@ def journal():
             "mood": request.form.get("mood"),
             "text": request.form.get("text")
             }
-        mongo.db.tasks.insert_one(journal)
+        mongo.db.journal.insert_one(journal)
         flash("Journal entry added")
         return redirect(url_for("homepage"))
 

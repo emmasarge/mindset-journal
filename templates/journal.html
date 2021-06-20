@@ -4,14 +4,14 @@
 <section class="journal-page">
     <h1>Your Journal</h1>
 <!--Journal Input Form-->
-<form>
+<form class="col s12" method="POST" action="{{ url_for('journal') }}">
   <div class="form-group">
-    <label for="exampleFormControlInput1">Date</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    <label for="date">Date</label>
+    <input type="date" name="date" class="form-control validate" id="date" placeholder="Today's date">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Mood</label>
-    <select class="form-control" id="exampleFormControlSelect1">
+    <label for="mood">Mood</label>
+    <select class="form-control validate" id="mood" name="mood">
       <option>Happy</option>
       <option>Sad</option>
       <option>Disconnected</option>
@@ -19,10 +19,15 @@
       <option>Angry</option>
     </select>
   </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Start your journal</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+    <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" name="title" class="form-control validate" id="title" placeholder="Today's title">
   </div>
+  <div class="form-group">
+    <label for="text">Start your journal</label>
+    <textarea class="form-control validate" id="text" name="text" rows="5"></textarea>
+  </div>
+   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
 
