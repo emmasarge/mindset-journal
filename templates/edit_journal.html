@@ -4,7 +4,7 @@
 <section class="journal-page">
     <h1>Edit Journal</h1>
 <!--Journal Input Form-->
-<form class="col s12" method="POST" action="{{ url_for('edit_journal') }}">
+ <form class="col s12" method="POST" action="{{ url_for('edit_journal', journal_id=journal._id) }}"
   <div class="form-group">
     <label for="date">Date</label>
     <input type="date" name="date" class="form-control validate" id="date" placeholder="Today's date">
