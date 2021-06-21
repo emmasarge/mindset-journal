@@ -66,6 +66,7 @@ def edit_journal(journal_id):
     title = mongo.db.title.find().sort("title", 1)
     return render_template("edit_journal.html", journal=journal, title=title)
 
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
