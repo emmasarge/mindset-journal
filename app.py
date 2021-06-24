@@ -76,7 +76,7 @@ def edit_journal(journal_id):
     title = mongo.db.title.find().sort("title", 1)
     return render_template("edit_journal.html", journal=journal, title=title)
 
-
+#delete journal entry
 @app.route("/delete_journal/<journal_id>")
 def delete_journal(journal_id):
     mongo.db.journal.remove({"_id": ObjectId(journal_id)})
@@ -137,6 +137,29 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+#user profile
+@app.route("/profile/<username>", methods = ["GET", "POST"])
+def profile(username):
+    # grab session's username from mongodb
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if session['user']:
+        return render_template("profile.html", username=username)
+
+    return redirect(url_for("login"))
+
+
+#logout 
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookie
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
