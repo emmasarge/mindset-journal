@@ -2,34 +2,53 @@
 {% block content %}
 
 <h1>Your entries:</h1>
+
+<div class="row card-panel grey lighten-5">
+    <form action="{{ url_for('search') }}" method="post" class="col s12">
+        <div class="row valigin-wrapper center-align">
+            <div class="input-field col s12 m8">
+             
+                 <input type="text" class="text validate" name="query" minlength="3" id="query" required>
+                 <label for="query"> Search entries</label>
+                
+            </div>
+            <div class="col s12 m4">
+                <a href="{{ url_for('entry_collection') }}" class="btn text-shadow deep-orange lighten-2"> Reset</a>
+               <button type="submit" class="deep-orange lighten-2 btn text-shadow">
+                        <i class="fas fa-search left"></i> Search
+            </div>
+        </div>
+    </form>
+</div>
+
+
 {% if journal|length > 0 %}
 <div id="accordion">
     {% for journal in journal %}
   <div class="card">
-    <div class="card-header" id="headingOne">
-            <div class="col s3">
-                {% if session.user|lower == journal.created_by|lower %}
-               
-                    <a href="{{ url_for('edit_journal', journal_id=journal._id) }}" class="btn btn-primary">Edit</a>
-                {% endif %}
-            </div>
+    <div class="card-header" id="heading">
       <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          {{ journal.date }}<br>{{ journal.title}}
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ loop.index }} " aria-expanded="true" aria-controls="collapse{{ loop.index }} ">
+          {{ journal.date }}
         </button>
-      </h5>
-    </div>
         
-    <div id="collapseOne" class="collapse show" aria-labelledby="journalEntry" data-parent="#accordion">
+      </h5>
+      
+    </div>
+
+    <div id="collapse{{ loop.index }} " class="collapse" aria-labelledby="heading{{ loop.index }} " data-parent="#accordion">
       <div class="card-body">
-          {{ journal.mood}}<br>
-          {{ journal.text}}
-    
+        <strong>{{ journal.mood }}</strong>
+        <p>{{ journal.text }}</p>
       </div>
     </div>
-      {% endfor %}
   </div>
+ {% endfor %}
+
 </div>
+{% else %}
+<h3 class="brown-text text-darken-4 center-align">No Results Found</h3>
 {% endif %}
-          
+
+
 {% endblock %}

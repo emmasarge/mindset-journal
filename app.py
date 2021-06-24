@@ -1,11 +1,13 @@
 import os
 from flask import (
-    Flask, flash, render_template, redirect, request, session, url_for)
+    Flask, flash, render_template,
+    redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
+
 
 
 app = Flask(__name__)
@@ -22,6 +24,14 @@ mongo = PyMongo(app)
 @app.route("/homepage")
 def homepage():
     return render_template("homepage.html")
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    journal = list(mongo.db.journal.find({"$text": {"$search": query }}))
+    return render_template("entry_collection.html", journal=journal)
+
 
 
 @app.route("/entry_collection")

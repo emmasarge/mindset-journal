@@ -1,3 +1,5 @@
-$(document).ready(function () {
-$('.collapse').collapse()
+  $(document).ready(function(){
+    $('.collapse').collapse()
   });
+        
+
