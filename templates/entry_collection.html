@@ -21,7 +21,7 @@
     </form>
 </div>
 
-
+{% if session.user|lower == journal.created_by|lower %}
 {% if journal|length > 0 %}
 <div id="accordion">
     {% for journal in journal %}
@@ -48,6 +48,7 @@
  {% endfor %}
 
 </div>
+{% endif %}
 {% else %}
 <h3 class="brown-text text-darken-4 center-align">No Results Found</h3>
 {% endif %}

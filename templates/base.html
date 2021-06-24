@@ -32,7 +32,7 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="#">About</a>
+                    
                         <a class="nav-link" href="{{ url_for('login') }}">Login</a>
                         <a class="nav-link" href="{{ url_for('register') }}">Join</a>
                         <a class="nav-link" href="{{ url_for('journal') }}">Journal</a>
@@ -48,7 +48,7 @@
         {% if messages %}
         {% for message in messages %}
         <row class="flashes">
-            <h4 class="center-align deep-orange lighten-4">{{ message }}</h4>
+            <h4>{{ message }}</h4>
         </row>
         {% endfor %}
         {% endif %}
