@@ -21,7 +21,7 @@
     </form>
 </div>
 
-{% if session.user|lower == journal.created_by|lower %}
+{% if session.user|lower == journal.username|lower %}
 {% if journal|length > 0 %}
 <div id="accordion">
     {% for journal in journal %}
@@ -41,6 +41,7 @@
     <div id="collapse{{ loop.index }} " class="collapse" aria-labelledby="heading{{ loop.index }} " data-parent="#accordion">
       <div class="card-body">
         <strong>{{ journal.mood }}</strong>
+        {{ journal.created_by }}
         <p>{{ journal.text }}</p>
       </div>
     </div>
