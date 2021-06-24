@@ -28,7 +28,7 @@ def homepage():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    query = request.form.get("query")
+    query = request.form.get("query") 
     journal = list(mongo.db.journal.find({"$text": {"$search": query }}))
     return render_template("entry_collection.html", journal=journal)
 
@@ -53,7 +53,7 @@ def journal():
             }
         mongo.db.journal.insert_one(journal)
         flash("Journal entry added")
-        return redirect(url_for("homepage"))
+        return redirect(url_for("entry_collection"))
 
     date = mongo.db.journal.find().sort("date", 1)
     return render_template("journal.html", date=date)
@@ -75,6 +75,13 @@ def edit_journal(journal_id):
     journal = mongo.db.journal.find_one({"_id": ObjectId(journal_id)})
     title = mongo.db.title.find().sort("title", 1)
     return render_template("edit_journal.html", journal=journal, title=title)
+
+
+@app.route("/delete_journal/<journal_id>")
+def delete_journal(journal_id):
+    mongo.db.journal.remove({"_id": ObjectId(journal_id)})
+    flash("Entry Successfully Deleted")
+    return redirect(url_for("entry_collection"))
 
 
 @app.route("/register", methods=["GET", "POST"])
