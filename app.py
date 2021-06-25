@@ -35,7 +35,6 @@ def search():
 @app.route("/entry_collection")
 def entry_collection():
     journal = list(mongo.db.journal.find())
-    session["user"] = request.form.get("username")
     return render_template("entry_collection.html", journal=journal)
 
 
@@ -57,7 +56,7 @@ def journal():
     return render_template("journal.html", date=date) 
 
 
-#edit journal entry
+# edit journal entry
 @app.route("/edit_journal/<journal_id>", methods=["GET", "POST"])
 def edit_journal(journal_id):
     if request.method == "POST":
@@ -76,7 +75,7 @@ def edit_journal(journal_id):
     return render_template("edit_journal.html", journal=journal, title=title)
 
 
-#delete journal entry
+# delete journal entry
 @app.route("/delete_journal/<journal_id>")
 def delete_journal(journal_id):
     mongo.db.journal.remove({"_id": ObjectId(journal_id)})
@@ -138,7 +137,7 @@ def login():
     return render_template("login.html")
 
 
-#user profile
+# user profile
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab session's username from mongodb
@@ -151,7 +150,7 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-#logout 
+# logout
 @app.route("/logout")
 def logout():
     # remove user from session cookie
