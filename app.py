@@ -9,7 +9,6 @@ if os.path.exists("env.py"):
     import env
 
 
-
 app = Flask(__name__)
 
 
@@ -33,13 +32,11 @@ def search():
     return render_template("entry_collection.html", journal=journal)
 
 
-
 @app.route("/entry_collection")
 def entry_collection():
     journal = list(mongo.db.journal.find())
     session["user"] = request.form.get("username")
     return render_template("entry_collection.html", journal=journal)
-
 
 
 # write journal entry
@@ -57,8 +54,7 @@ def journal():
         return redirect(url_for("entry_collection"))
 
     date = mongo.db.journal.find().sort("date", 1)
-    username = mongo.db.journal.find().sort("username")
-    return render_template("journal.html", date=date, username=session["user"]) 
+    return render_template("journal.html", date=date) 
 
 
 #edit journal entry
@@ -73,8 +69,8 @@ def edit_journal(journal_id):
             }
 
         mongo.db.journal.update({"_id": ObjectId(journal_id)}, submit)
-        flash("Entry Successfully Updated")
-      
+        flash("Your journal entry has been updated")
+   
     journal = mongo.db.journal.find_one({"_id": ObjectId(journal_id)})
     title = mongo.db.title.find().sort("title", 1)
     return render_template("edit_journal.html", journal=journal, title=title)
@@ -84,7 +80,7 @@ def edit_journal(journal_id):
 @app.route("/delete_journal/<journal_id>")
 def delete_journal(journal_id):
     mongo.db.journal.remove({"_id": ObjectId(journal_id)})
-    flash("Entry Successfully Deleted")
+    flash("Your entry has been deleted")
     return redirect(url_for("entry_collection"))
 
 
@@ -105,7 +101,6 @@ def register():
         }
 
         mongo.db.users.insert_one(register)
-
         # Put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
@@ -144,7 +139,7 @@ def login():
 
 
 #user profile
-@app.route("/profile/<username>", methods = ["GET", "POST"])
+@app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab session's username from mongodb
     username = mongo.db.users.find_one(
@@ -157,7 +152,6 @@ def profile(username):
 
 
 #logout 
-
 @app.route("/logout")
 def logout():
     # remove user from session cookie
