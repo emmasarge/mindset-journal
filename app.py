@@ -34,8 +34,13 @@ def search():
 
 @app.route("/entry_collection")
 def entry_collection():
-    journal = list(mongo.db.journal.find())
-    return render_template("entry_collection.html", journal=journal)
+    if session.get('user'):
+        journal = list(mongo.db.journal.find())
+        return render_template("entry_collection.html", journal=journal)
+
+    else:
+        flash("Please Log In or Register to access the site")
+        return redirect(url_for("login"))
 
 
 # write journal entry
