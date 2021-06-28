@@ -51,7 +51,8 @@ def journal():
             "date": request.form.get("date"),
             "title": request.form.get("title"),
             "mood": request.form.get("mood"),
-            "text": request.form.get("text")
+            "text": request.form.get("text"),
+            "created_by": session["user"]
             }
         mongo.db.journal.insert_one(journal)
         flash("Journal entry added")
@@ -69,7 +70,8 @@ def edit_journal(journal_id):
             "date": request.form.get("date"),
             "title": request.form.get("title"),
             "mood": request.form.get("mood"),
-            "text": request.form.get("text")
+            "text": request.form.get("text"),
+            "created_by": session["user"]
             }
 
         mongo.db.journal.update({"_id": ObjectId(journal_id)}, submit)
@@ -143,14 +145,14 @@ def login():
 
 
 # user profile
-@app.route("/profile/<username>", methods=["GET", "POST"])
+@app.route("/profile/<username>", methods = ["GET", "POST"])
 def profile(username):
-    # grab session's username from mongodb
+    # grab session's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
     if session['user']:
-        return render_template("entry_collection.html", username=username)
+        return render_template("profile.html", username=username)
 
     return redirect(url_for("login"))
 
