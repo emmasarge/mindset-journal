@@ -7,15 +7,15 @@
     <form action="{{ url_for('search') }}" method="post" class="col s12">
         <div class="row valigin-wrapper center-align">
             <div class="input-field col s12 m8">
-             
-                 <input type="text" class="text validate" name="query" minlength="3" id="query" required>
-                 <label for="query"> Search entries</label>
-                
+
+                <input type="text" class="text validate" name="query" minlength="3" id="query" required>
+                <label for="query"> Search entries</label>
+
             </div>
             <div class="col s12 m4">
                 <a href="{{ url_for('entry_collection') }}" class="btn text-shadow deep-orange lighten-2"> Reset</a>
-               <button type="submit" class="deep-orange lighten-2 btn text-shadow">
-                        <i class="fas fa-search left"></i> Search
+                <button type="submit" class="deep-orange lighten-2 btn text-shadow">
+                    <i class="fas fa-search left"></i> Search
             </div>
         </div>
     </form>
@@ -25,31 +25,34 @@
 {% if journal|length > 0 %}
 <div id="accordion">
     {% for journal in journal %}
-  <div class="card">
-    <div class="card-header" id="heading">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ loop.index }} " aria-expanded="true" aria-controls="collapse{{ loop.index }} ">
-          {{ journal.date }} : {{ journal.title }}
-        </button>
-        <button class="btn"> <a href="{{ url_for('edit_journal', journal_id=journal._id) }}">Edit</a></button>
-        <button class="btn"> <a href="{{ url_for('delete_journal', journal_id=journal._id) }}">Delete</a></button>
-        
-      </h5>
-      
-    </div>
+    <div class="card">
+        <div class="card-header" id="heading">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ loop.index }} "
+                    aria-expanded="true" aria-controls="collapse{{ loop.index }} ">
+                    {{ journal.date }} : {{ journal.title }}
+                </button>
+                <button class="btn"> <a href="{{ url_for('edit_journal', journal_id=journal._id) }}">Edit</a></button>
+                <button class="btn"> <a
+                        href="{{ url_for('delete_journal', journal_id=journal._id) }}">Delete</a></button>
 
-    <div id="collapse{{ loop.index }} " class="collapse" aria-labelledby="heading{{ loop.index }} " data-parent="#accordion">
-      <div class="card-body">
-        <strong>{{ journal.mood }}</strong>
-        {{ journal.created_by }}
-        <p>{{ journal.text }}</p>
-      </div>
-    </div>
-  </div>
- {% endfor %}
+            </h5>
 
+        </div>
+
+        <div id="collapse{{ loop.index }} " class="collapse" aria-labelledby="heading{{ loop.index }} "
+            data-parent="#accordion">
+            <div class="card-body">
+                {% for user in users %}
+                <strong>{{ journal.mood }}</strong>
+                {{ users.username }}
+                <p>{{ journal.text }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
 </div>
-
 {% else %}
 <h3 class="brown-text text-darken-4 center-align">No Results Found</h3>
 {% endif %}
