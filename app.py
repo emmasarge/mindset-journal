@@ -138,7 +138,7 @@ def login():
             # username doesn't exist
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
-
+            
     return render_template("login.html")
 
 
@@ -150,7 +150,7 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session['user']:
-        return render_template("profile.html", username=username)
+        return render_template("entry_collection.html", username=username)
 
     return redirect(url_for("login"))
 
