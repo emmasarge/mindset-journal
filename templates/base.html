@@ -31,18 +31,21 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                       {% if session.user == "admin"|lower %}
+                    <div class="navbar-nav">  
                         <a class="nav-link" href="{{ url_for('login') }}">Login</a>
                         <a class="nav-link" href="{{ url_for('register') }}">Join</a>
-                         {% else %}
+                         {% if session.user %}
                         <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
                         <a class="nav-link" href="{{ url_for('journal') }}">Write</a>
-                        <a class="nav-link" href="{{ url_for('entry_collection') }}">Entries</a>
-                        <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a></li>
+                        <a class="nav-link" href="{{ url_for('entry_collection') }}">Entries</a> 
+                        <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a></li>  
+                        {% endif %}
                     </div>
-                    {% endif %}
+                  
+                   
+                    
                 </div>
+                
             </div>
         </nav>
 
