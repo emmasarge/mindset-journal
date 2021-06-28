@@ -92,7 +92,7 @@ def delete_journal(journal_id):
 def register():
     if request.method == "POST":
         # Check if username already exists in database
-        existing_user = mongo.db.users.find_one(
+        existing_user = mongo.db.journal.find_one(
             {"username": request.form.get("username").lower()})
 
         if existing_user:
@@ -117,7 +117,7 @@ def register():
 def login():
     if request.method == "POST":
         # check if username exists in db
-        existing_user = mongo.db.users.find_one(
+        existing_user = mongo.db.journal.find_one(
             {"username": request.form.get("username").lower()})
 
         if existing_user:
@@ -146,7 +146,7 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab session's username from mongodb
-    username = mongo.db.users.find_one(
+    username = mongo.db.journal.find_one(
         {"username": session["user"]})["username"]
 
     if session['user']:

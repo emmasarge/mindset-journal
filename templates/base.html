@@ -32,7 +32,7 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                       {% if not session['user'] %}
+                       {% if session.user == "admin"|lower %}
                         <a class="nav-link" href="{{ url_for('login') }}">Login</a>
                         <a class="nav-link" href="{{ url_for('register') }}">Join</a>
                          {% else %}
