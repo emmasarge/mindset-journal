@@ -130,7 +130,7 @@ def login():
                 flash("Welcome, {}".format(
                         request.form.get("username")))
                 return redirect(url_for(
-                        "homepage", username=session["user"]))
+                        "entry_collection", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
