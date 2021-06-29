@@ -1,3 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400&family=Yeseva+One&display=swap');
+/*---  font-family: 'Yeseva One', cursive;--*/
 body {
     background-color: #fafafa;
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 24px;
+    text-align: center;
+}
+
+
+nav{
+    margin-bottom: 30px;
+    font-family: 'Darker Grotesque', sans-serif;
+}
+.navbar {
+  
+    color: #0d1922;
+    text-transform: lowercase;
+}
+
+
+.navbar-brand {
+    font-size: 2em!important;
+    
+}
+
+.navbar a {
+    color: #0d1922!important;
+    font-size: 1.5em;
+
 }
