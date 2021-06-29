@@ -90,6 +90,25 @@ def delete_journal(journal_id):
     return redirect(url_for("entry_collection"))
 
 
+# write gratitude entry
+@app.route("/gratitude", methods=["GET", "POST"])
+def gratitude():
+    if request.method == "POST":
+        gratitude = {
+            "date": request.form.get("date"),
+            "grat_one": request.form.get("grat_one"),
+            "grat_two": request.form.get("grat_two"),
+            "grat_three": request.form.get("grat_three"),
+            "created_by": session["user"]
+            }
+        mongo.db.gratitudes.insert_one(journal)
+        flash("Today's gratitudes have been added")
+        return redirect(url_for("profile"))
+
+    date = mongo.db.gratitudes.find().sort("date", 1)
+    return render_template("gratitude.html", date=date) 
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
