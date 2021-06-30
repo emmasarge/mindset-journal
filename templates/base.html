@@ -10,7 +10,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css" />
     <!--BOOTSTRAP-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" type="text/css">
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"
+        type="text/css">
     <!--CUSTOM CSS-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
@@ -23,31 +24,38 @@
     <!--NAVBAR-->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url_for('homepage') }}">Mindset Journal</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">  
-                         {% if session.user %}
+            <a class="navbar-brand" href="{{ url_for('homepage') }}">Mindset Journal</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                {% if session.user %}
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
                         <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('journal') }}">Write</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('entry_collection') }}">Entries</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('gratitude') }}">Gratitudes</a>
-                        <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a></li>  
-                        {% else %} 
-                          <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a></li>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('register') }}">Join</a>
-                        {% endif %}
-                    </div>
-                  
-                   
-                    
-                </div>
-                
+                    </li>
+                </ul>
+                {% endif %}
             </div>
         </nav>
 

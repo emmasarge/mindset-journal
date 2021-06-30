@@ -136,11 +136,11 @@ def edit_gratitudes(gratitudes_id):
 
         mongo.db.gratitudes.update({"_id": ObjectId(gratitudes_id)}, submit)
         flash("Your gratitudes entry has been updated")
-        
-    gratitudes = mongo.db.journal.find_one({"_id": ObjectId(gratitudes_id)})
-    date = mongo.db.title.find().sort("date", 1)
-    return render_template("edit_gratitudes.html", gratitudes=gratitudes, 
-            date=date)
+
+    gratitudes = mongo.db.gratitudes.find_one({"_id": ObjectId(gratitudes_id)})
+    date = mongo.db.date.find().sort("date", 1)
+    return render_template("edit_gratitudes.html",
+            gratitudes=gratitudes, date=date)
 
 
 # delete gratitude entry
@@ -149,7 +149,6 @@ def delete_gratitudes(gratitudes_id):
     mongo.db.gratitudes.remove({"_id": ObjectId(gratitudes_id)})
     flash("Your gratitudes have been deleted")
     return redirect(url_for("gratitude_collection"))
-
 
 
 

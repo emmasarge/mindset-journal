@@ -7,7 +7,7 @@
  <form class="col s12" method="POST" action="{{ url_for('edit_gratitudes', gratitudes_id=gratitudes._id) }}"
   <div class="form-group">
     <label for="date">Date</label>
-    <input type="date" name="date" class="form-control validate" id="date" value="{{ gratitudes.date }}" placeholder="{{ journal.date }}">
+    <input type="date" name="date" class="form-control validate" id="date" value="{{ gratitudes.date }}" placeholder="{{ gratitudes.date }}">
   </div>
    <div class="form-group">
     <label for="grat_one">Gratitude 1</label>
@@ -23,8 +23,6 @@
   </div>
    <button type="submit" class="btn btn-primary">Edit</button>
 </form>
-
-
 </section>
 
 {% endblock %}
