@@ -101,12 +101,31 @@ def gratitude():
             "grat_three": request.form.get("grat_three"),
             "created_by": session["user"]
             }
-        mongo.db.gratitudes.insert_one(journal)
+        mongo.db.gratitudes.insert_one(gratitude)
         flash("Today's gratitudes have been added")
-        return redirect(url_for("profile"))
+        return redirect(url_for("profile",  username=session["user"]))
 
     date = mongo.db.gratitudes.find().sort("date", 1)
     return render_template("gratitude.html", date=date) 
+
+
+
+@app.route("/gratitude_collection")
+def gratitude_collection():
+    if session.get('user'):
+        gratitudes = list(mongo.db.gratitudes.find())
+        return render_template("gratitude_collection.html", gratitudes=gratitudes)
+
+    else:
+        flash("Please Log In or Register to access the site")
+        return redirect(url_for("gratitude_collection"))
+
+
+@app.route("/grat_search", methods=["GET", "POST"])
+def grat_search():
+    query = request.form.get("query")
+    gratitudes = list(mongo.db.gratitudes.find({"$text": {"$search": query }}))
+    return render_template("gratitude_collection.html", gratitudes=gratitudes)
 
 
 @app.route("/register", methods=["GET", "POST"])

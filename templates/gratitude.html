@@ -22,9 +22,13 @@
     <label for="grat_three">Gratitude 3</label>
     <input type="text" name="grat_three" class="form-control validate" id="grat_three" placeholder="gratitude three">
   </div>
+   <button type="submit" class="btn btn-primary">Submit</button>
+   </form>
 </section>
+
+
 <section>
-    For past gratitudes click <a href="{{ url_for('gratitude') }}" >here</a>
+    For past gratitudes click <a href="{{ url_for('gratitude_collection') }}" >here</a>
 </section>
 
 {% endblock %}
