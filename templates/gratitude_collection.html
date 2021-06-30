@@ -1,28 +1,26 @@
 {% extends "base.html" %}
-{% block content%}
+{% block content %}
+
+<h1>Your entries:</h1>
 
 
-<h1>Your gratitudes:</h1>
+
 
 {% if gratitudes|length > 0 %}
 
 <div id="accordion">
 {% for gratitude in gratitudes %}
-  {% if session.user|lower == gratitudes.created_by|lower or session.user == "admin"|lower %}
+  {% if session.user|lower == gratitude.created_by|lower or session.user == "admin"|lower %}
     <div class="card">
         <div class="card-header" id="heading">
             <h5 class="mb-0">
-
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ loop.index }} "
+                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ loop.index }} "
                     aria-expanded="true" aria-controls="collapse{{ loop.index }} ">
-                    {{ gratitudes.date }}
+                    Date: {{ gratitude.date }}
                 </button>
-                  
-                <button class="btn"> <a href="{{ url_for('edit_gratitude', gratitudes_id=gratitudes._id) }}">Edit</a></button>
+                <button class="btn"> <a href="{{ url_for('edit_gratitudes', gratitudes_id=gratitudes._id) }}">Edit</a></button>
                 <button class="btn"> <a
-                        href="{{ url_for('delete_gratitude', gratitudes_id=gratitudes._id) }}">Delete</a></button>
-                   
-
+                        href="{{ url_for('delete_gratitudes', gratitudes_id=gratitudes._id) }}">Delete</a></button>
             </h5>
 
         </div>
@@ -30,13 +28,10 @@
         <div id="collapse{{ loop.index }} " class="collapse" aria-labelledby="heading{{ loop.index }} "
             data-parent="#accordion">
             <div class="card-body">
-                <p> Gratitude 1 <br>
-                {{ grat_one }}</p>
-                 <p> Gratitude 2 <br>
-                {{ grat_two }}</p>
-                 <p> Gratitude 3 <br>
-                {{ grat_three }}</p>
-                
+                <p>Gratitude one: <br>{{ gratitude.grat_one }}</p>
+                <p>Gratitude two: <br>{{ gratitude.grat_two }}</p>
+                <p>Gratitude three: <br>{{ gratitude.grat_three }}</p>
+               
             </div>
             
       {% endif %}
@@ -46,8 +41,9 @@
      
       {% endfor %}
 </div>
-
+{% else %}
+<h3 class="brown-text text-darken-4 center-align">No Results Found</h3>
 {% endif %}
 
+
 {% endblock %}
- 

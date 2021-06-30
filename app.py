@@ -103,29 +103,54 @@ def gratitude():
             }
         mongo.db.gratitudes.insert_one(gratitude)
         flash("Today's gratitudes have been added")
-        return redirect(url_for("gratitude_collection",  username=session["user"]))
+        return redirect(url_for("gratitude_collection", username=session["user"]))
 
     date = mongo.db.gratitudes.find().sort("date", 1)
     return render_template("gratitude.html", date=date) 
 
 
-
+# See the collection of past gratitudes
 @app.route("/gratitude_collection")
 def gratitude_collection():
     if session.get('user'):
         gratitudes = list(mongo.db.gratitudes.find())
-        return render_template("gratitude_collection.html", gratitudes=gratitudes)
+        return render_template("gratitude_collection.html",
+            gratitudes=gratitudes)
 
     else:
         flash("Please Log In or Register to access the site")
         return redirect(url_for("login"))
 
 
-@app.route("/grat_search", methods=["GET", "POST"])
-def grat_search():
-    query = request.form.get("query")
-    gratitudes = list(mongo.db.gratitudes.find({"$text": {"$search": query }}))
-    return render_template("gratitude_collection.html", gratitudes=gratitudes)
+# edit gratitude entry
+@app.route("/edit_gratitudes/<gratitudes_id>", methods=["GET", "POST"])
+def edit_gratitudes(gratitudes_id):
+    if request.method == "POST":
+        submit = {
+            "date": request.form.get("date"),
+            "grat_one": request.form.get("grat_one"),
+            "grat_two": request.form.get("grat_two"),
+            "grat_three": request.form.get("grat_three"),
+            "created_by": session["user"]
+            }
+
+        mongo.db.gratitudes.update({"_id": ObjectId(gratitudes_id)}, submit)
+        flash("Your gratitudes entry has been updated")
+        
+    gratitudes = mongo.db.journal.find_one({"_id": ObjectId(gratitudes_id)})
+    date = mongo.db.title.find().sort("date", 1)
+    return render_template("edit_gratitudes.html", gratitudes=gratitudes, 
+            date=date)
+
+
+# delete gratitude entry
+@app.route("/delete_gratitudes/<gratitudes_id>")
+def delete_gratitudes(gratitudes_id):
+    mongo.db.gratitudes.remove({"_id": ObjectId(gratitudes_id)})
+    flash("Your gratitudes have been deleted")
+    return redirect(url_for("gratitude_collection"))
+
+
 
 
 @app.route("/register", methods=["GET", "POST"])
