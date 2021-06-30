@@ -103,7 +103,7 @@ def gratitude():
             }
         mongo.db.gratitudes.insert_one(gratitude)
         flash("Today's gratitudes have been added")
-        return redirect(url_for("profile",  username=session["user"]))
+        return redirect(url_for("gratitude_collection",  username=session["user"]))
 
     date = mongo.db.gratitudes.find().sort("date", 1)
     return render_template("gratitude.html", date=date) 
@@ -118,7 +118,7 @@ def gratitude_collection():
 
     else:
         flash("Please Log In or Register to access the site")
-        return redirect(url_for("gratitude_collection"))
+        return redirect(url_for("login"))
 
 
 @app.route("/grat_search", methods=["GET", "POST"])
