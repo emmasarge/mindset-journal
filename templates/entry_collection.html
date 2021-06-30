@@ -1,68 +1,67 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Your entries:</h1>
+<section class="journal-search">
+    <h1>Your entries:</h1>
 
-<div class="row card-panel grey lighten-5">
-    <form action="{{ url_for('search') }}" method="post" class="col s12">
-        <div class="row valigin-wrapper center-align">
-            <div class="input-field col s12 m8">
-
-                <input type="text" class="text validate" name="query" minlength="3" id="query" required>
-                <label for="query"> Search entries</label>
-
+    <div class="row card-panel grey lighten-5">
+        <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row valigin-wrapper center-align">
+                <div class="input-field col s12 m8">
+                    <input type="text" class="text validate" name="query" minlength="3" id="query" placeholder="Search by journal title" required>
+                    <label for="query"> </label>
+                </div>
+                <div class="col s12 m4">
+                    <a href="{{ url_for('entry_collection') }}" class="btn"> Reset</a>
+                    <button type="submit" class="btn">Search</button>
+                </div>
             </div>
-            <div class="col s12 m4">
-                <a href="{{ url_for('entry_collection') }}" class="btn text-shadow deep-orange lighten-2"> Reset</a>
-                <button type="submit" class="deep-orange lighten-2 btn text-shadow">
-                    <i class="fas fa-search left"></i> Search
-            </div>
-        </div>
-    </form>
-</div>
-
-
-{% if journal|length > 0 %}
-
-<div id="accordion">
-{% for journal in journal %}
-  {% if session.user|lower == journal.created_by|lower or session.user == "admin"|lower %}
-    <div class="card">
-        <div class="card-header" id="heading">
-            <h5 class="mb-0">
-
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ loop.index }} "
-                    aria-expanded="true" aria-controls="collapse{{ loop.index }} ">
-                    {{ journal.date }} : {{ journal.title }}
-                </button>
-                  
-                <button class="btn"> <a href="{{ url_for('edit_journal', journal_id=journal._id) }}">Edit</a></button>
-                <button class="btn"> <a
-                        href="{{ url_for('delete_journal', journal_id=journal._id) }}">Delete</a></button>
-                   
-
-            </h5>
-
-        </div>
-
-        <div id="collapse{{ loop.index }} " class="collapse" aria-labelledby="heading{{ loop.index }} "
-            data-parent="#accordion">
-            <div class="card-body">
-                <strong>Mood: {{ journal.mood }}</strong>
-                <p>{{ journal.created_by }}</p>
-                <p>{{ journal.text }}</p>
-            </div>
-            
-      {% endif %}
-        </div>
-        
+        </form>
     </div>
-     
-      {% endfor %}
-</div>
-{% else %}
-<h3 class="brown-text text-darken-4 center-align">No Results Found</h3>
-{% endif %}
+</section>
+<section class="journal-collection">
+    {% if journal|length > 0 %}
 
+    <div id="accordion">
+        {% for journal in journal %}
+        {% if session.user|lower == journal.created_by|lower or session.user == "admin"|lower %}
+        <div class="card">
+            <div class="card-header" id="heading">
+                <h5 class="mb-0">
+
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ loop.index }} "
+                        aria-expanded="true" aria-controls="collapse{{ loop.index }} ">
+                        {{ journal.date }} : {{ journal.title }}
+                    </button>
+
+                    <button class="btn"> <a
+                            href="{{ url_for('edit_journal', journal_id=journal._id) }}">Edit</a></button>
+                    <button class="btn"> <a
+                            href="{{ url_for('delete_journal', journal_id=journal._id) }}">Delete</a></button>
+
+
+                </h5>
+
+            </div>
+
+            <div id="collapse{{ loop.index }} " class="collapse" aria-labelledby="heading{{ loop.index }} "
+                data-parent="#accordion">
+                <div class="card-body">
+                    <strong>Mood: {{ journal.mood }}</strong>
+                    <p>{{ journal.created_by }}</p>
+                    <p>{{ journal.text }}</p>
+                </div>
+
+                {% endif %}
+            </div>
+
+        </div>
+
+        {% endfor %}
+    </div>
+    {% else %}
+    <h3>No Results Found</h3>
+    {% endif %}
+</section>
 
 {% endblock %}

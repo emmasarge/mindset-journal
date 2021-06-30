@@ -139,8 +139,8 @@ def edit_gratitudes(gratitudes_id):
 
     gratitudes = mongo.db.gratitudes.find_one({"_id": ObjectId(gratitudes_id)})
     date = mongo.db.date.find().sort("date", 1)
-    return render_template("edit_gratitudes.html",
-            gratitudes=gratitudes, date=date)
+    return render_template(
+        "edit_gratitudes.html", gratitudes=gratitudes, date=date)
 
 
 # delete gratitude entry
