@@ -34,33 +34,62 @@ nav{
     
 }
 /*----PROFILE PAGE----*/
-.journal-entry-link {
-    background-image: url(../images/wool.png);
-    margin:50px 80px 50px 80px;
+
+.profile h3 {
+    font-family: 'Yeseva One', cursive;
+    font-size: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 100px;
+    margin-top: 20px;
+}
+.profile img{
+    width: 500px;
+    border-radius: 5px;    
+}
+.profile img:hover{
+    height:300px; 
+    transition: 0.5s ease-in-out; 
+    filter: brightness(50%);
 }
 .journal-entry-link a {
-    font-family:'Yeseva One', cursive;
-    text-decoration: none;
-    color:#0d1922;
-    text-shadow: 2px 2px 4px #fafafa;
-    font-size: 30px;
-    line-height: 200px;
-    height: 200px;
-}
-.gratitude-entry-link {
-    background-image: url(../images/wood.png);
-    margin:50px 80px 50px 80px;
-}
-.gratitude-entry-link a {
-    font-family:'Yeseva One', cursive;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
     text-decoration: none;
     color:#fafafa;
-    font-size:30px;
-    text-shadow: 2px 2px 4px #0d1922;
-    line-height: 200px;
-    height: 200px;
+    text-shadow: 0.5px 0.5px 0.5px  #0d1922;
+    font-size: 1.4em;
+    text-align: center;
+    letter-spacing: 2px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
 }
 
+.gratitude-entry-link a {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    color:#fafafa;
+    text-shadow: 0.5px 0.5px 0.5px  #0d1922;
+    font-size: 1.4em;
+    text-align: center;
+    letter-spacing: 2px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 900px) {
+
+    .gratitude-entry-link {
+        margin-top: 60px;
+    }
+   
+  }
 /*-----ENTRY COLLECTION---*/
 
 
