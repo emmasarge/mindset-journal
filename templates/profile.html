@@ -7,8 +7,20 @@
         <div class="col">
            
                <h3>
-                   {{ username }}'s profile.
+                   {{ username }}'s profile
                </h3>
+
+        </div>
+    </div>
+
+    <div class="row container-fluid">
+        <div class="col journal-entry-link">
+            <p><a href="{{ url_for('entry_collection') }}">{{ username }}'s journal entries</a></p>
+        </div>
+        <div class="col gratitude-entry-link">
+            <p><a href="{{ url_for('gratitude_collection') }}">{{ username }}'s gratitudes</a></p>
+        </div>
+    </div>
 
               
 

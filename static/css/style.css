@@ -26,6 +26,66 @@ nav{
 
 .navbar a {
     color: #0d1922!important;
-    font-size: 1.5em;
-
+    font-size: 24px;
 }
+
+.navbar li {
+    list-style-type: none;
+    
+}
+/*----PROFILE PAGE----*/
+.journal-entry-link {
+    background-image: url(../images/wool.png);
+    margin:50px 80px 50px 80px;
+}
+.journal-entry-link a {
+    font-family:'Yeseva One', cursive;
+    text-decoration: none;
+    color:#0d1922;
+    text-shadow: 2px 2px 4px #fafafa;
+    font-size: 30px;
+    line-height: 200px;
+    height: 200px;
+}
+.gratitude-entry-link {
+    background-image: url(../images/wood.png);
+    margin:50px 80px 50px 80px;
+}
+.gratitude-entry-link a {
+    font-family:'Yeseva One', cursive;
+    text-decoration: none;
+    color:#fafafa;
+    font-size:30px;
+    text-shadow: 2px 2px 4px #0d1922;
+    line-height: 200px;
+    height: 200px;
+}
+
+/*-----ENTRY COLLECTION---*/
+
+
+/*------JOURNAL-------*/
+
+
+/*----EDIT ENTRY----*/
+
+
+/*-----GRATITUDE COLLECTION---*/
+
+
+
+/*------WRITE GRATITUDES-------*/
+
+
+/*----EDIT GRATITUDES----*/
+
+
+/*-----HOMEPAGE---*/
+
+
+
+/*------LOGIN-------*/
+
+
+/*----REGISTER----*/
+
