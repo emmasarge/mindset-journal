@@ -2,16 +2,32 @@
 {% block content %}
 
 <section class="homepage">
-    <div class='journal-top container "d-flex justify-content-center"'>
+    <div class='journal-top container flex justify-content-center"'>
         <h1>Mindset</h1>
-        <p>Mindset Journal is a free tool for you to use with your therapist to share what is on your mind. By recognising your mood, your gratitudes and your thoughts for the day, you can build a simple practice of self-care. 
-        </br>
-            
-            Daily entries will promote mindful thinking. Alongside CBT and mindfulness, gratitude and general journals are
-            an effective method to condition your thinking and awareness for more constructive thoughts and reactions for better well-being. 
+        <span class="homepage-text">
+        <p>
+            Mindset Journal is a free tool for you to use with your therapist to share what is on your mind. By recognising your mood, your gratitudes and your thoughts for the day, you can build a simple practice of self-care.
         </p>
-        <p> <a href="{{ url_for('login') }}">Login</a></p>
-            <p> <a href="{{ url_for('register') }}">Register to Start</a></p>
+        <p>
+            Daily entries will promote mindful thinking. Alongside CBT and mindfulness, gratitude and general journals
+            are an effective method to condition your thinking and awareness for more constructive thoughts and reactions for better well-being.
+        </p>
+        <p>
+            You and your therapist will have access to your entries as your therapist follows your moods and activities to guide you in the best direction for productive healing.
+        </p>
+    </span>
+    <div class="row container justify-content-center">
+        <button class="btn col">
+            <a href="{{ url_for('login') }}">
+                Login
+            </a>
+        </button>
+        <button class="btn col">
+            <a href="{{ url_for('register') }}">
+                Register to Start
+            </a>
+        </button>
+    </div>
     </div>
 </section>
 
