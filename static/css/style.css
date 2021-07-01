@@ -113,8 +113,28 @@ nav {
 /*-----GRATITUDE COLLECTION---*/
 
 
-
 /*------WRITE GRATITUDES-------*/
+.gratitude-page form {
+    background-color:#0d1922;
+    height: 600px;
+    color: #fafafa;
+    text-align: left;
+    padding: 40px 80px 20px;
+    border-radius:0;
+    
+}
+
+.gratitude-page button {
+    background-color:#fafafa;
+    color: #0d1922;
+    padding: 7px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius:0;
+    border: 1px #fafafa;
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 20px;
+}
 
 
 /*----EDIT GRATITUDES----*/
