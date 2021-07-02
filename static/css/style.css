@@ -108,13 +108,51 @@ nav {
     margin-top: 30px;
 }
 .searchbar {
+   display: inline-block;
     margin-bottom: 30px;
-    border: 1px solid #0d1922;
+    width: 80%;
+    background-color: #fafafa;
+    
+    
 }
-.searchbar button {
+.journal-search input {
+    font-size:16px;
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+.input-field {
+    border:1px solid #0d1922;
+} 
+.edit-btn {
     background-color: #0d1922;
 }
 
+.edit-btn button {
+    border-radius: 0;
+    display:inline-block;
+    background-color: #0d1922;
+    color: #fafafa;
+    margin-right: 50px;
+    padding-left: 50px;
+    padding-right:50px;
+    margin-top: 15px;
+    font-family: 'Yeseva One', cursive;
+    text-transform: lowercase;
+    font-size: 20px;
+   
+}
+.edit-btn button:hover {
+    font-size: 24px;
+    transition: 0.7s ease-in-out ;
+    text-decoration: none;
+
+}
+
+.edit-btn button a {
+    color: #fafafa;
+    text-decoration: none;
+}
 .journal-collection .card {
     font-size: 20px;
 }
@@ -160,8 +198,14 @@ nav {
 @media only screen and (max-width: 800px) {
 
     .card {
-        margin-right: none;
-        margin-left: none;
+        margin-right: 0!important;
+        margin-left: 0!important;
+    }
+    .searchbar {
+        width:100%;
+    }
+    .edit-btn button {
+        margin-top: 5px;
     }
 
 }
