@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="gratitude-page">
+<section class="gratitude-page gratitude-page-edit">
     <h1>Edit Gratitudes</h1>
-<!--Journal Input Form-->
- <form class="col s12" method="POST" action="{{ url_for('edit_gratitudes', gratitudes_id=gratitudes._id) }}"
-  <div class="form-group">
+<!--gratitude Input Form-->
+<div class="container justify-content-end">
+ <form class="col s12" method="POST" action="{{ url_for('edit_gratitudes', gratitudes_id=gratitudes._id) }}">
+ <div class="form-group">
     <label for="date">Date</label>
     <input type="date" name="date" class="form-control validate" id="date" value="{{ gratitudes.date }}" placeholder="{{ gratitudes.date }}">
   </div>
@@ -23,6 +24,7 @@
   </div>
    <button type="submit" class="btn btn-primary">Edit</button>
 </form>
+</div>
 </section>
 
 {% endblock %}

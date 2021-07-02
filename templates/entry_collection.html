@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="journal-search">
+<section class="journal-search entry-collection">
     <h1>Your entries:</h1>
-
-    <div class="row card-panel grey lighten-5">
-        <form action="{{ url_for('search') }}" method="post" class="col s12">
+    <div class="row card-panel grey searchbar justify-content-center">
+        <form action="{{ url_for('search') }}" method="post" class="col-6 col s6">
             <div class="row valigin-wrapper center-align">
                 <div class="input-field col s12 m8">
-                    <input type="text" class="text validate" name="query" minlength="3" id="query" placeholder="Search by journal title" required>
+                    <input type="text" class="text validate" name="query" minlength="3" id="query"
+                        placeholder="Search by journal title" required>
                     <label for="query"> </label>
                 </div>
-                <div class="col s12 m4">
+                <div class="col-6 col s6 m4">
+                   
+                    <button type="submit" class="btn">Search</button> 
                     <a href="{{ url_for('entry_collection') }}" class="btn"> Reset</a>
-                    <button type="submit" class="btn">Search</button>
                 </div>
             </div>
         </form>
@@ -29,19 +30,20 @@
             <div class="card-header" id="heading">
                 <h5 class="mb-0">
 
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ loop.index }} "
-                        aria-expanded="true" aria-controls="collapse{{ loop.index }} ">
+                    <button class="btn btn-link accord-grat" data-toggle="collapse"
+                        data-target="#collapse{{ loop.index }} " aria-expanded="true"
+                        aria-controls="collapse{{ loop.index }} ">
                         {{ journal.date }} : {{ journal.title }}
                     </button>
-
-                    <button class="btn"> <a
-                            href="{{ url_for('edit_journal', journal_id=journal._id) }}">Edit</a></button>
-                    <button class="btn"> <a
-                            href="{{ url_for('delete_journal', journal_id=journal._id) }}">Delete</a></button>
+                    <span class="buttons float-right">
+                        <button class="btn"> <a
+                                href="{{ url_for('edit_journal', journal_id=journal._id) }}">Edit</a></button>
+                        <button class="btn"> <a
+                                href="{{ url_for('delete_journal', journal_id=journal._id) }}">Delete</a></button>
 
 
                 </h5>
-
+                </span>
             </div>
 
             <div id="collapse{{ loop.index }} " class="collapse" aria-labelledby="heading{{ loop.index }} "

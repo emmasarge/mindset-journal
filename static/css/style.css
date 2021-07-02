@@ -102,10 +102,101 @@ nav {
 }
 
 /*-----ENTRY COLLECTION---*/
+.journal-search h1 {
+    font-family: 'Yeseva One', cursive;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+.searchbar {
+    margin-bottom: 30px;
+    border: 1px solid #0d1922;
+}
+.searchbar button {
+    background-color: #0d1922;
+}
 
+.journal-collection .card {
+    font-size: 20px;
+}
+
+.accord-grat {
+    text-decoration: none!important;
+    color: #fafafa;
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 28px;
+    text-shadow: 0px 0px 4px #0d1922;  
+}
+.accord-grat:hover {
+    color: #fafafa;
+    font-size: 32px;
+
+}
+.card {
+    background-color:#0d1922;
+    border-radius: none;
+    border:none;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+.card-body {
+    background-color:#fafafa;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    border-radius:0;
+    margin-right: 10px;
+
+} 
+
+.buttons button a {
+    color:#0d1922;
+    font-family: 'Darker Grotesque', sans-serif;
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 800px) {
+
+    .card {
+        margin-right: none;
+        margin-left: none;
+    }
+
+}
 
 /*------JOURNAL-------*/
+.journal-page form {
+    background-color:#0d1922;
+    height: 600px;
+    color: #fafafa;
+    text-align: left;
+    padding: 40px 80px 20px;
+    border-radius:0;
+    
+}
+.journal-page placeholder {
+    color: #0d1922;
+}
 
+.journal-page button {
+    background-color:#fafafa;
+    color: #0d1922;
+    padding: 7px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius:0;
+    border: 1px #fafafa;
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 20px;
+}
+.journal-page h1 {
+    font-family: 'Yeseva One', cursive;
+    margin-bottom: 30px;
+    margin-top:20px;
+    text-transform: lowercase;
+}
 
 /*----EDIT ENTRY----*/
 
@@ -114,6 +205,7 @@ nav {
 .grat-collection h1 {
     font-family: 'Yeseva One', cursive;
     margin-bottom: 50px;
+    margin-top: 30px;
 }
 .grat-collection .card {
     font-size: 20px;
@@ -175,6 +267,9 @@ nav {
     border-radius:0;
     
 }
+.gratitude-page placeholder {
+    color: #0d1922;
+}
 
 .gratitude-page button {
     background-color:#fafafa;
@@ -187,9 +282,44 @@ nav {
     font-family: 'Darker Grotesque', sans-serif;
     font-size: 20px;
 }
+.gratitude-page h1 {
+    font-family: 'Yeseva One', cursive;
+    margin-bottom: 30px;
+    margin-top:20px;
+    text-transform: lowercase;
+}
 
 
 /*----EDIT GRATITUDES----*/
+.gratitude-page-edit form {
+    background-image: url(../images/linen.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    color: #fafafa;
+    text-align: left;
+    padding: 40px 80px 20px;
+    border-radius:0;
+    width: 80%;
+    display:inline-block;
+   
+}
+.gratitude-page-edit button {
+    margin: 0 auto;
+    display: block;
+    margin-top: 50px;
+    padding: 10px 50px 10px 50px;
+    box-shadow: 2px 2x 2px 10px #0d1922;
+}
+.gratitude-page-edit button:hover{
+    box-shadow: 2px 2x 2px 10px #0d1922;
+    transition: 0.5s ease-in-out ;
+    background-color: #0d1922;
+    color: #fafafa;
+    text-transform: uppercase;
+    
+} 
+
 
 /*-----HOMEPAGE---*/
 
