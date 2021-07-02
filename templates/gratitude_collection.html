@@ -1,46 +1,48 @@
 {% extends "base.html" %}
 {% block content %}
+<section class="grat-collection">
+  <h1>You have been thankful for...</h1>
 
-<h1>You have been thankful for...</h1>
+  {% if gratitudes|length > 0 %}
 
-{% if gratitudes|length > 0 %}
-
-<div id="accordion">
-{% for gratitude in gratitudes %}
-  {% if session.user|lower == gratitude.created_by|lower or session.user == "admin"|lower %}
+  <div id="accordion">
+    {% for gratitude in gratitudes %}
+    {% if session.user|lower == gratitude.created_by|lower or session.user == "admin"|lower %}
     <div class="card">
-        <div class="card-header" id="heading">
-            <h5 class="mb-0">
-                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ loop.index }} "
-                    aria-expanded="true" aria-controls="collapse{{ loop.index }} ">
-                    Date: {{ gratitude.date }}
-                </button>
-                <button class="btn"> <a href="{{ url_for('edit_gratitudes', gratitudes_id=gratitude._id) }}">Edit</a></button>
-                <button class="btn"> <a
-                        href="{{ url_for('delete_gratitudes', gratitudes_id=gratitude._id) }}">Delete</a></button>
-            </h5>
+      <div class="card-header" id="heading">
+        <h5 class="mb-0">
+          <button class="btn btn-link accord-grat" data-toggle="collapse" data-target="#collapse{{ loop.index }} "
+            aria-expanded="true" aria-controls="collapse{{ loop.index }} ">
+            Date: {{ gratitude.date }}
+          </button>
+          <span class="buttons float-right">
+            <button class="btn edit"> <a
+                href="{{ url_for('edit_gratitudes', gratitudes_id=gratitude._id) }}">Edit</a></button>
+            <button class="btn delete"> <a
+                href="{{ url_for('delete_gratitudes', gratitudes_id=gratitude._id) }}">Delete</a></button>
+        </h5>
+        </span>
+      </div>
+
+      <div id="collapse{{ loop.index }} " class="collapse" aria-labelledby="heading{{ loop.index }} "
+        data-parent="#accordion">
+        <div class="card-body">
+          <p>Gratitude one: <br>{{ gratitude.grat_one }}</p>
+          <p>Gratitude two: <br>{{ gratitude.grat_two }}</p>
+          <p>Gratitude three: <br>{{ gratitude.grat_three }}</p>
 
         </div>
 
-        <div id="collapse{{ loop.index }} " class="collapse" aria-labelledby="heading{{ loop.index }} "
-            data-parent="#accordion">
-            <div class="card-body">
-                <p>Gratitude one: <br>{{ gratitude.grat_one }}</p>
-                <p>Gratitude two: <br>{{ gratitude.grat_two }}</p>
-                <p>Gratitude three: <br>{{ gratitude.grat_three }}</p>
-               
-            </div>
-            
-      {% endif %}
-        </div>
-        
+        {% endif %}
+      </div>
+
     </div>
-     
-      {% endfor %}
-</div>
-{% else %}
-<h3 class="brown-text text-darken-4 center-align">No Results Found</h3>
-{% endif %}
 
+    {% endfor %}
+  </div>
+  {% else %}
+  <h3>No Results Found</h3>
+  {% endif %}
+</section>
 
 {% endblock %}

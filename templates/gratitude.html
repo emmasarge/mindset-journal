@@ -5,14 +5,12 @@
 
     <h1>Gratitudes</h1>
 <div class="row">
-  <div class="col-md-6 ">
-    <span class="grat-images">
-    <img src="{{ url_for('static', filename='images/wool.png') }}" height="600"> 
-   
-  </span>
+  <div class="col-6 order-2 order-sm-2">
+    <img src="{{ url_for('static', filename='images/wool.png') }}" height="600" width="600"> 
+
   </div>   
 <!--Gratitude Input Form-->
-<div class="col-md-6">
+<div class="col-6 order-1 order-sm-1">
 <form method="POST" action="{{ url_for('gratitude') }}">
   <div class="form-group">
     <label for="date">Date</label>

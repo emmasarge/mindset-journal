@@ -111,8 +111,60 @@ nav {
 
 
 /*-----GRATITUDE COLLECTION---*/
+.grat-collection h1 {
+    font-family: 'Yeseva One', cursive;
+    margin-bottom: 50px;
+}
+.grat-collection .card {
+    font-size: 20px;
+}
 
+.accord-grat {
+    text-decoration: none!important;
+    color: #fafafa;
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 28px;
+    text-shadow: 0px 0px 4px #0d1922;  
+}
+.accord-grat:hover {
+    color: #fafafa;
+    font-size: 32px;
 
+}
+.card {
+    background-color:#0d1922;
+    border-radius: none;
+    border:none;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+.card-body {
+    background-color:#fafafa;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    border-radius:0;
+    margin-right: 10px;
+
+} 
+
+.buttons button a {
+    color:#0d1922;
+    font-family: 'Darker Grotesque', sans-serif;
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 800px) {
+
+    .card {
+        margin-right: none;
+        margin-left: none;
+    }
+
+}
 /*------WRITE GRATITUDES-------*/
 .gratitude-page form {
     background-color:#0d1922;
