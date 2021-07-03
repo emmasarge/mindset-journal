@@ -23,16 +23,16 @@
     {% if journal|length > 0 %}
 
     <div id="accordion">
-        {% for journal in journal %}
+        {% for journal in journal|sort(attribute='date', reverse = True) %}
         {% if session.user|lower == journal.created_by|lower or session.user == "admin"|lower %}
         <div class="card">
             <div class="card-header" id="heading">
                 <h5 class="mb-0">
 
-                    <button class="btn btn-link accord-grat" data-toggle="collapse"
+                    <button class="btn btn-link accord-grat float-left" data-toggle="collapse"
                         data-target="#collapse{{ loop.index }} " aria-expanded="true"
                         aria-controls="collapse{{ loop.index }} ">
-                        {{ journal.date }} : {{ journal.title }}
+                       Date: {{ journal.date }} || {{ journal.title }}
                     </button>
                     <span class="buttons float-right">
                         <button class="btn"> <a

@@ -6,12 +6,12 @@
   {% if gratitudes|length > 0 %}
 
   <div id="accordion">
-    {% for gratitude in gratitudes %}
+    {% for gratitude in gratitudes|sort(attribute='date', reverse = True) %}
     {% if session.user|lower == gratitude.created_by|lower or session.user == "admin"|lower %}
     <div class="card">
       <div class="card-header" id="heading">
         <h5 class="mb-0">
-          <button class="btn btn-link accord-grat" data-toggle="collapse" data-target="#collapse{{ loop.index }} "
+          <button class="btn btn-link accord-grat float-left" data-toggle="collapse" data-target="#collapse{{ loop.index }} "
             aria-expanded="true" aria-controls="collapse{{ loop.index }} ">
             Date: {{ gratitude.date }}
           </button>
