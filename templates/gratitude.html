@@ -5,14 +5,14 @@
 
   <h1>Gratitudes</h1>
 <div class="row">
-  <div class="col  order-2 order-sm-2">
+  <div class="col  order-2 order-sm-2 paint">
     <span>
     <img src="{{ url_for('static', filename='images/paint-two.png') }}" height="600" width="500">  
     </span>
 
   </div>   
 <!--Gratitude Input Form-->
-<div class="col order-1 order-sm-1">
+<div class="col col-md-8 order-1 order-sm-1">
 <form method="POST" action="{{ url_for('gratitude') }}">
   <div class="form-group">
     <label for="date">Date</label>

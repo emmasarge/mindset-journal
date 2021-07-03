@@ -170,15 +170,10 @@ nav {
     text-decoration: none;
 }
 
-.journal-collection .card {
-    font-size: 20px;
-}
-
 .accord-grat {
     text-decoration: none !important;
     color: #fafafa;
     font-family: 'Darker Grotesque', sans-serif;
-    font-size: 28px;
     text-shadow: 0px 0px 4px #0d1922;
 }
 
@@ -235,6 +230,10 @@ nav {
        z-index: 10;
        position: inherit;
     
+    }
+    .accord-grat {
+        font-size:20px!important;
+
     }
 
 }
@@ -375,7 +374,7 @@ nav {
 }
 
 .grat-collection .card {
-    font-size: 20px;
+    font-size: 2vw;
 }
 
 .accord-grat {
@@ -483,6 +482,15 @@ nav {
     text-transform: uppercase;
     text-decoration: underline;
 
+}
+@media only screen and (max-width: 800px) {
+    .gratitude-page img {
+       display: none;
+    }
+    .gratitude-page .paint {
+        background-image: url(../images/paint-two.png);
+    }
+   
 }
 
 
