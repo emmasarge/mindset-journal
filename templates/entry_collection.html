@@ -4,14 +4,14 @@
 <section class="journal-search entry-collection">
     <h1>Your entries:</h1>
     <div class="row card-panel grey searchbar">
-        <form action="{{ url_for('search') }}" method="post" class="col s6 search-bar">
+        <form action="{{ url_for('search') }}" method="post" class="col s8 search-bar">
             <div class="row valigin-wrapper">
                 <div class="input-field col s12 m8">
                     <input type="text" class="text validate" name="query" minlength="3" id="query"
                         placeholder="Search by journal title" required>
                     <label for="query"> </label>
                 </div>
-                <div class="col s6 m4 edit-btn">
+                <div class="col s4 m4 edit-btn">
                        <button type="submit" class="btn">Search</button> 
                    <button class="btn"> <a href="{{ url_for('entry_collection') }}" > Reset</a></button>
                 </div>
@@ -26,7 +26,7 @@
         {% for journal in journal|sort(attribute='date', reverse = True) %}
         {% if session.user|lower == journal.created_by|lower or session.user == "admin"|lower %}
         <div class="card">
-            <div class="card-header" id="heading">
+            <div class="card-header container" id="heading">
                 <h5 class="mb-0">
 
                     <button class="btn btn-link accord-grat float-left" data-toggle="collapse"

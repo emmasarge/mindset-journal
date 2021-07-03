@@ -19,7 +19,10 @@ nav {
     color: #0d1922;
     text-transform: lowercase;
 }
-
+.navbar-nav {
+    float: left;
+    text-align: left;
+}
 
 .navbar-brand {
     font-size: 2em !important;
@@ -98,9 +101,11 @@ nav {
 }
 
 @media only screen and (max-width: 900px) {
-
     .gratitude-entry-link {
         margin-top: 60px;
+    }
+    .profile img {
+        width: 100%;
     }
 
 }
@@ -293,6 +298,18 @@ nav {
     text-transform: uppercase;
     text-decoration: underline;
 
+}
+
+@media only screen and (max-width: 800px){
+    #journal-page form{
+        width:100%;
+    }
+    .buttons {
+        float:none;
+    }
+    .accord-grat {
+        font-size:1rem;
+    }
 }
 
 /*----EDIT ENTRY----*/
