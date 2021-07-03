@@ -228,8 +228,9 @@ nav {
     }
 
     .buttons {
-       float: none;
+       float: left;
        z-index: 10;
+       position: inherit;
     
     }
 
