@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<section id="login-page">
 <h1>Login Here</h1>
 <form method="POST" action="{{ url_for('login') }}">
   <!-- Create username -->
@@ -19,7 +20,7 @@
     </div>
   </div>
   <!-- Register Submit -->
-  <button type="submit" class="btn btn-primary">Login</button>
+  <button type="submit" class="btn">Login</button>
 </form>
 <!-- Alternative to Login-->
 <div class="row">
@@ -29,5 +30,6 @@
     </p>
   </div>
 </div>
+</section>
 
 {% endblock %}

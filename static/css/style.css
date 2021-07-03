@@ -444,6 +444,72 @@ nav {
 
 
 /*------LOGIN-------*/
+#login-page h1 {
+    font-family: 'Yeseva One', cursive;
+    margin-bottom: 40px;
+}
+#login-page button {
+    background-color: #0d1922;
+    color:#fafafa;
+    border-radius:0;
+    border: none;
+    padding: 10px 30px;
+    margin: 40px;
+    font-family: 'Yeseva One', cursive;
+    font-size: 20px;
+}
 
+#login-page button:hover {
+    background-color: #0d1922;
+    color: #fafafa;
+    text-transform: uppercase;
+    transition: all 0.7s ease-out;
+    -moz-transition: all 0.7s ease-out;
+    -webkit-transition: all 0.7s ease-out;
+}
 
+#login-page a {
+    color:#82b0b4;
+}
+
+#login-page a:hover {
+    text-transform: uppercase;
+    transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -webkit-transition: all 0.5s ease-out;
+}
 /*----REGISTER----*/
+#register-page h1 {
+    font-family: 'Yeseva One', cursive!important;
+    margin-bottom: 50px;
+}
+#register-page button {
+    background-color: #0d1922;
+    color:#fafafa;
+    border-radius:0;
+    border: none;
+    padding: 10px 30px;
+    margin: 40px;
+    font-family: 'Yeseva One', cursive;
+    font-size: 20px;
+}
+
+#register-page button:hover {
+    background-color: #0d1922;
+    color: #fafafa;
+    text-transform: uppercase;
+    transition: all 0.7s ease-out;
+    -moz-transition: all 0.7s ease-out;
+    -webkit-transition: all 0.7s ease-out;
+}
+
+#register-page a {
+    color:#82b0b4;
+}
+
+#register-page a:hover {
+    text-transform: uppercase;
+    transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -webkit-transition: all 0.5s ease-out;
+}
