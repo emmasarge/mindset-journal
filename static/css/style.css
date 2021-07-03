@@ -145,7 +145,6 @@ nav {
     display: inline-block;
     background-color: #0d1922;
     color: #fafafa;
-    margin-right: 50px;
     padding-left: 50px;
     padding-right: 50px;
     margin-top: 15px;
@@ -226,8 +225,8 @@ nav {
         width: 100%;
     }
 
-    .edit-btn button {
-        margin-top: 5px;
+    .buttons {
+       float: none;
     }
 
 }
