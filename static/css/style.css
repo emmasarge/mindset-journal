@@ -484,12 +484,7 @@ nav {
 
 }
 @media only screen and (max-width: 800px) {
-    .gratitude-page img {
-       display: none;
-    }
-    .gratitude-page .paint {
-        background-image: url(../images/paint-two.png);
-    }
+   
    
 }
 
