@@ -527,6 +527,8 @@ nav {
 
 .homepage {
     background-image: url(../images/forest.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 50px;
 }
 
