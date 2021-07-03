@@ -231,7 +231,7 @@ nav {
     }
 
     .buttons {
-       float: left;
+        float: none;
        z-index: 10;
        position: inherit;
     
