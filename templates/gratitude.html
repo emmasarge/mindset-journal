@@ -3,30 +3,32 @@
 
 <section class="gratitude-page container">
 
-    <h1>Gratitudes</h1>
+  <h1>Gratitudes</h1>
 <div class="row">
-  <div class="col-6 order-2 order-sm-2">
-    <img src="{{ url_for('static', filename='images/wool.png') }}" height="600" width="600"> 
+  <div class="col  order-2 order-sm-2">
+    <span>
+    <img src="{{ url_for('static', filename='images/paint-two.png') }}" height="600" width="500">  
+    </span>
 
   </div>   
 <!--Gratitude Input Form-->
-<div class="col-6 order-1 order-sm-1">
+<div class="col order-1 order-sm-1">
 <form method="POST" action="{{ url_for('gratitude') }}">
   <div class="form-group">
     <label for="date">Date</label>
-    <input type="date" name="date" class="form-control validate" id="date" placeholder="Today's date">
+    <input type="date" name="date" class="form-control validate" id="date" placeholder="Today's date" required>
   </div>
  <div class="form-group">
     <label for="grat_one">Gratitude 1</label>
-    <input type="text" name="grat_one" class="form-control validate" id="grat_one" placeholder="gratitude one">
+    <input type="text" name="grat_one" class="form-control validate" id="grat_one" placeholder="gratitude one" required>
   </div>
      <div class="form-group">
     <label for="grat_two">Gratitude 2</label>
-    <input type="text" name="grat_two" class="form-control validate" id="grat_two" placeholder="gratitude two">
+    <input type="text" name="grat_two" class="form-control validate" id="grat_two" placeholder="gratitude two" required>
   </div>
   <div class="form-group">
     <label for="grat_three">Gratitude 3</label>
-    <input type="text" name="grat_three" class="form-control validate" id="grat_three" placeholder="gratitude three">
+    <input type="text" name="grat_three" class="form-control validate" id="grat_three" placeholder="gratitude three"required>
   </div>
    <button type="submit" class="btn btn-primary">Submit</button> 
    <p>For past gratitudes click <a href="{{ url_for('gratitude_collection') }}" >here</a></p>

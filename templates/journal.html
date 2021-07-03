@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="journal-page">
+<section id="journal-page">
     <h1>Your Journal</h1>
 <!--Journal Input Form-->
 
@@ -28,12 +28,13 @@
     <label for="text">Start your journal</label>
     <textarea class="form-control validate" id="text" name="text" rows="5"></textarea>
   </div>
-   <button type="submit" class="btn btn-primary">Submit</button>
+  <span class="journal-btn">
+   <button type="submit" class="btn">Submit</button>
+  </span>
 </form>
 
-</section>
-<section>
+<div id="past-entry">
     For past entries click <a href="{{ url_for('entry_collection') }}" >here</a>
+</div>
 </section>
-
 {% endblock %}
