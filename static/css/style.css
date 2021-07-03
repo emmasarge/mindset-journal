@@ -220,6 +220,7 @@ nav {
         margin-right: 0 !important;
         margin-left: 0 !important;
         z-index: 3;
+        width: 100%;
     }
 
     .searchbar {
