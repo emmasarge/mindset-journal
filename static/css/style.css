@@ -227,7 +227,8 @@ nav {
 
     .buttons {
        float: none;
-       color: #fafafa;
+       z-index: 10;
+    
     }
 
 }
