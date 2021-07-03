@@ -8,11 +8,11 @@
 <form class="col s12" method="POST" action="{{ url_for('journal') }}">
   <div class="form-group">
     <label for="date">Date</label>
-    <input type="date" name="date" class="form-control validate" id="date" placeholder="Today's date">
+    <input type="date" name="date" class="form-control validate" id="date" placeholder="Today's date"required>
   </div>
   <div class="form-group">
     <label for="mood">Mood</label>
-    <select class="form-control validate" id="mood" name="mood">
+    <select class="form-control validate" id="mood" name="mood" required>
       <option>Happy</option>
       <option>Sad</option>
       <option>Disconnected</option>
@@ -22,11 +22,11 @@
   </div>
     <div class="form-group">
     <label for="title">Title</label>
-    <input type="text" name="title" class="form-control validate" id="title" placeholder="Today's title">
+    <input type="text" name="title" class="form-control validate" id="title" placeholder="Today's title" required>
   </div>
   <div class="form-group">
     <label for="text">Start your journal</label>
-    <textarea class="form-control validate" id="text" name="text" rows="5"></textarea>
+    <textarea class="form-control validate" id="text" name="text" rows="5" minlength="10" required></textarea>
   </div>
   <span class="journal-btn">
    <button type="submit" class="btn">Submit</button>
