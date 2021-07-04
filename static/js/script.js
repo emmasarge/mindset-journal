@@ -19,18 +19,24 @@ regBtn.onmouseleave = function () {
         this.classList.remove('hovered');
     }.bind(this), 2000)
 }
+
+
 // profile page CTA
+
+// gratitude entry link
 function gratPro(){
-    oldInner  = document.getElementById("proIm").innerHTML;
+    original  = document.getElementById("proIm").innerHTML;
     document.getElementById("proIm").innerHTML = "see what<br>you were thankful for...";
 }
 function gratOr(){
-    document.getElementById("proIm").innerHTML = oldInner ;
-}
+    document.getElementById("proIm").innerHTML = original ;
+};
+
+// journal entry link
 function jouPro(){
-    oldInner  = document.getElementById("proJournalEntry").innerHTML;
+    original  = document.getElementById("proJournalEntry").innerHTML;
     document.getElementById("proJournalEntry").innerHTML = "see what<br>you wrote...";
 }
 function jouOr(){
-    document.getElementById("proJournalEntry").innerHTML = oldInner ;
-}
+    document.getElementById("proJournalEntry").innerHTML = original ;
+};
