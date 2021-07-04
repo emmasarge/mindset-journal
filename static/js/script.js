@@ -19,13 +19,18 @@ regBtn.onmouseleave = function () {
         this.classList.remove('hovered');
     }.bind(this), 2000)
 }
-
-profile.onmouseenter = function () {
-    this.css("background-color: #fafafa");
+// profile page CTA
+function gratPro(){
+    oldInner  = document.getElementById("proIm").innerHTML;
+    document.getElementById("proIm").innerHTML = "see what<br>you were thankful for...";
 }
-
-profile.onmouseleave = function () {
-    setTimeout(function () {
-        this.css("font-family:'Yeseva One', cursive;");
-    }.bind(this), 2000)
+function gratOr(){
+    document.getElementById("proIm").innerHTML = oldInner ;
+}
+function jouPro(){
+    oldInner  = document.getElementById("proJournalEntry").innerHTML;
+    document.getElementById("proJournalEntry").innerHTML = "see what<br>you wrote...";
+}
+function jouOr(){
+    document.getElementById("proJournalEntry").innerHTML = oldInner ;
 }

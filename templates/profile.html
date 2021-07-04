@@ -14,13 +14,13 @@
     </div>
 
     <div class="row container-fluid justify-content-center" id="profile">
-        <div class="col-md journal-entry-link">
+        <div class="col-md journal-entry-link" onmouseenter="jouPro();" onmouseleave="jouOr();">
             <img src="{{ url_for('static', filename='images/linen.png') }}" alt="linen">
-                 <p><a href="{{ url_for('entry_collection') }}">{{ username }}'s journal entries</a></p>
+                 <p><a id="proJournalEntry" href="{{ url_for('entry_collection') }}">{{ username }}'s journal entries</a></p>
         </div>
-        <div class="col-md gratitude-entry-link">
+        <div class="col-md gratitude-entry-link" onmouseenter="gratPro();" onmouseleave="gratOr();">
             <img src="{{ url_for('static', filename='images/paint-two.png') }}" alt="wool" height="280">
-            <p><a href="{{ url_for('gratitude_collection') }}">{{ username }}'s gratitudes</a></p>
+            <p  ><a id="proIm" href="{{ url_for('gratitude_collection') }}">{{ username }}'s gratitudes</a></p>
         </div>
     </div>
 </section>
