@@ -35,10 +35,9 @@
                        Date: {{ journal.date }} || {{ journal.title }}
                     </button>
                     <span class="buttons float-right">
-                        <button class="btn"> <a
+                        <button class="btn" id="crudBtn"> <a
                                 href="{{ url_for('edit_journal', journal_id=journal._id) }}">Edit</a></button>
-                        <button class="btn"> <a
-                                href="{{ url_for('delete_journal', journal_id=journal._id) }}">Delete</a></button>
+                        <button class="btn"  > <a id="deleteBtn" href="{{ url_for('delete_journal', journal_id=journal._id) }}">Delete</a></button>
 
 
                 </h5>
@@ -63,6 +62,8 @@
     {% else %}
     <h3>No Results Found</h3>
     {% endif %}
+
+   
 </section>
 
 {% endblock %}

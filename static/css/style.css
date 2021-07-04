@@ -19,6 +19,7 @@ nav {
     color: #0d1922;
     text-transform: lowercase;
 }
+
 .navbar-nav {
     float: left;
     text-align: left;
@@ -104,8 +105,14 @@ nav {
     .gratitude-entry-link {
         margin-top: 60px;
     }
+
     .profile img {
         width: 100%;
+        height: 300px;
+    }
+
+    .profile h3 {
+        font-size: 30px;
     }
 
 }
@@ -227,12 +234,13 @@ nav {
 
     .buttons {
         float: none;
-       z-index: 10;
-       position: inherit;
-    
+        z-index: 10;
+        position: inherit;
+
     }
+
     .accord-grat {
-        font-size:20px!important;
+        font-size: 20px !important;
 
     }
 
@@ -306,15 +314,17 @@ nav {
 
 }
 
-@media only screen and (max-width: 800px){
-    #journal-page form{
-        width:100%;
+@media only screen and (max-width: 800px) {
+    #journal-page form {
+        width: 100%;
     }
+
     .buttons {
-        float:none;
+        float: none;
     }
+
     .accord-grat {
-        font-size:1rem;
+        font-size: 1rem;
     }
 }
 
@@ -434,9 +444,9 @@ nav {
     padding: 40px 80px 20px;
     border-radius: 0;
     height: 600px;
-    position:static;
-    margin:0;
-    width:150%;
+    position: static;
+    margin: 0;
+    width: 150%;
 
 }
 
@@ -476,6 +486,7 @@ nav {
     -o-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
 }
+
 .gratitude-page a {
     color: #82b0b4 !important;
     text-decoration: none;
@@ -493,11 +504,17 @@ nav {
     text-decoration: underline;
 
 }
+
 @media only screen and (max-width: 800px) {
-    .gratitude-page form{
+    .gratitude-page form {
         width: 100%;
+        text-align: center;
     }
-   
+
+    .gratitude-page h1 {
+        margin-bottom: 50px;
+    }
+
 }
 
 
@@ -586,10 +603,11 @@ nav {
     transition: all .5s ease-in-out;
 
 }
+
 @media only screen and (max-width: 800px) {
 
     .homepage button {
-       justify-content: center;
+        justify-content: center;
     }
 
 }
@@ -676,4 +694,17 @@ nav {
     -ms-transition: all .5s ease-in-out;
     -o-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
+}
+
+/*----Javascript fx---*/
+#loginBtn {
+    transition: all 0.5s ease-out;
+}
+
+#regBtn {
+    transition: all 0.5s ease-out;
+}
+
+.hovered {
+    background: #d4e1e2 !important;
 }

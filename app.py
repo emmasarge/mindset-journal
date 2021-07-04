@@ -59,7 +59,7 @@ def journal():
         return redirect(url_for("entry_collection"))
 
     date = mongo.db.journal.find().sort("date", 1)
-    return render_template("journal.html", date=date) 
+    return render_template("journal.html", date=date)
 
 
 # edit journal entry
@@ -76,7 +76,7 @@ def edit_journal(journal_id):
 
         mongo.db.journal.update({"_id": ObjectId(journal_id)}, submit)
         flash("Your journal entry has been updated")
-   
+        
     journal = mongo.db.journal.find_one({"_id": ObjectId(journal_id)})
     title = mongo.db.title.find().sort("title", 1)
     return render_template("edit_journal.html", journal=journal, title=title)
@@ -141,7 +141,6 @@ def edit_gratitudes(gratitudes_id):
     date = mongo.db.date.find().sort("date", 1)
     return render_template(
         "edit_gratitudes.html", gratitudes=gratitudes, date=date)
-
 
 # delete gratitude entry
 @app.route("/delete_gratitudes/<gratitudes_id>")
