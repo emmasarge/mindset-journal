@@ -434,8 +434,12 @@ nav {
     padding: 40px 80px 20px;
     border-radius: 0;
     height: 600px;
+    position:static;
+    margin:0;
+    width:150%;
 
 }
+
 
 .gratitude-page placeholder {
     color: #0d1922;
@@ -478,13 +482,21 @@ nav {
 
 }
 
+.grat-row {
+    background-image: url(../images/paint-two.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .gratitude-page a:hover {
     text-transform: uppercase;
     text-decoration: underline;
 
 }
 @media only screen and (max-width: 800px) {
-   
+    .gratitude-page form{
+        width: 100%;
+    }
    
 }
 
