@@ -12,8 +12,8 @@
                     <label for="query"> </label>
                 </div>
                 <div class="col s4 m4 edit-btn">
-                       <button type="submit" class="btn">Search</button> 
-                   <button class="btn"> <a href="{{ url_for('entry_collection') }}" > Reset</a></button>
+                    <button type="submit" class="btn">Search</button>
+                    <button class="btn"> <a href="{{ url_for('entry_collection') }}"> Reset</a></button>
                 </div>
             </div>
         </form>
@@ -32,12 +32,13 @@
                     <button class="btn btn-link accord-grat float-left" data-toggle="collapse"
                         data-target="#collapse{{ loop.index }} " aria-expanded="true"
                         aria-controls="collapse{{ loop.index }} ">
-                       Date: {{ journal.date }} || {{ journal.title }}
+                        Date: {{ journal.date }} || {{ journal.title }}
                     </button>
                     <span class="buttons float-right">
                         <button class="btn"> <a
                                 href="{{ url_for('edit_journal', journal_id=journal._id) }}">Edit</a></button>
-                        <button class="btn"> <a href="{{ url_for('delete_journal', journal_id=journal._id) }}">Delete</a></button>
+                        <button class="btn"> <a
+                                href="{{ url_for('delete_journal', journal_id=journal._id) }}">Delete</a></button>
 
 
                 </h5>
@@ -47,9 +48,19 @@
             <div id="collapse{{ loop.index }} " class="collapse" aria-labelledby="heading{{ loop.index }} "
                 data-parent="#accordion">
                 <div class="card-body">
+                    <!--for only the 'admin' to see who created the entry-->
+                    {% if session.user|lower == "admin"|lower %}
+                    <p class="admin-user-ref">
+                        <em>
+                            <strong>
+                               written by: {{ journal.created_by }}
+                            </strong>
+                        </em>
+                    </p>
+                    {% endif %}
                     <strong>Mood: {{ journal.mood }}</strong>
-                    <p>{{ journal.created_by }}</p>
                     <p>{{ journal.text }}</p>
+
                 </div>
 
                 {% endif %}
@@ -63,7 +74,7 @@
     <h3>No Results Found</h3>
     {% endif %}
 
-   
+
 </section>
 
 {% endblock %}

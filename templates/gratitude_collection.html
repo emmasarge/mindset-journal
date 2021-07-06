@@ -11,8 +11,8 @@
     <div class="card">
       <div class="card-header" id="heading">
         <h5 class="mb-0">
-          <button class="btn btn-link accord-grat float-left" data-toggle="collapse" data-target="#collapse{{ loop.index }} "
-            aria-expanded="true" aria-controls="collapse{{ loop.index }} ">
+          <button class="btn btn-link accord-grat float-left" data-toggle="collapse"
+            data-target="#collapse{{ loop.index }} " aria-expanded="true" aria-controls="collapse{{ loop.index }} ">
             Date: {{ gratitude.date }}
           </button>
           <span class="buttons float-right">
@@ -27,6 +27,16 @@
       <div id="collapse{{ loop.index }} " class="collapse" aria-labelledby="heading{{ loop.index }} "
         data-parent="#accordion">
         <div class="card-body">
+          <!---for admin to see the user who created the entry-->
+          {% if session.user|lower == "admin"|lower %}
+          <p class="admin-user-ref">
+            <em>
+              <strong>
+                written by: {{ gratitude.created_by }}
+              </strong>
+            </em>
+          </p>
+          {% endif %}
           <p>Gratitude one: <br>{{ gratitude.grat_one }}</p>
           <p>Gratitude two: <br>{{ gratitude.grat_two }}</p>
           <p>Gratitude three: <br>{{ gratitude.grat_three }}</p>
@@ -34,15 +44,15 @@
         </div>
 
         {% endif %}
+        </div>
+
       </div>
 
+      {% endfor %}
     </div>
-
-    {% endfor %}
-  </div>
-  {% else %}
-  <h3>No Results Found</h3>
-  {% endif %}
+    {% else %}
+    <h3>No Results Found</h3>
+    {% endif %}
 </section>
 
 {% endblock %}

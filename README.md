@@ -38,6 +38,8 @@ Using Python, flask, MongoDB, create and app using CRUD. Mindset Journal is a gr
 
 
 # UX
+### Project Objectives
+Mindset is an accessible app for therapists to use with their clients. It can also be used by anyone for their way to journal and practice gratitude. The website provides privacy so no one other than the admin can access the entries. The secondary purpose of this project is to demonstrate my understanding of backend technologies using Python, Flask and MongoDB.
 # Planning & Design
 # Technologies
 # Features

@@ -694,7 +694,11 @@ nav {
     -o-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
 }
-
+/*-----ADMIN VISIBIBITLITY OF USER ENTRIES FOR GRATITUDE AND JOURNAL ENTRIES----*/
+.admin-user-ref {
+    font-family: 'Yeseva One', cursive;
+    color: #82b0b4;
+}
 /*----Javascript fx---*/
 #loginBtn {
     transition: all 0.5s ease-out;
@@ -707,3 +711,4 @@ nav {
 .hovered {
     background: #d4e1e2 !important;
 }
+
