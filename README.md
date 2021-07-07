@@ -147,6 +147,7 @@ I collected images to use as accents across the site. I didn't want the app to l
 For a modern, editorial effect, I looked at clean and effective sites and was incluenced a lot by Vogue.com. I used a cursive bigger font called Yeseva One for most headings to add some weight to the design. With most of the structure of the site's forms being an almost navy-black, I wanted the main font to be an elegant and modern font to soften the design and maintain a visual balance, for this I sued Darker Grotesque from Google Fonts. Where I needed a little more definition on the profile page for the journal and gratitude buttons, I used Gill Sans as it looks a little stronger against a background image.
 
 # Technologies
+
 * [HTML5](https://en.wikipedia.org/wiki/HTML5) 
 
 * [CSS3](https://en.wikipedia.org/wiki/CSS) for site styling
@@ -175,8 +176,20 @@ For a modern, editorial effect, I looked at clean and effective sites and was in
 
 * [Balsamiq](https://balsamiq.com) for wireframes.
 
-
 # Features
+* Navigation bar
+* Brand Logo
+* Responsive elements for Desktop, tablet and mobile.
+* Intuitive journal and gratitude forms forms
+* Login/Logout
+* Register Username
+* Call to action buttons
+* JINJA2 loops
+* Python backend functionality
+* Custom MongoDB database for entries and users
+* Create/Read/Update/Delete functionality
+* Images
+
 # Testing
 # Bugs
 # Deployment
