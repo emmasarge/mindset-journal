@@ -147,6 +147,34 @@ I collected images to use as accents across the site. I didn't want the app to l
 For a modern, editorial effect, I looked at clean and effective sites and was incluenced a lot by Vogue.com. I used a cursive bigger font called Yeseva One for most headings to add some weight to the design. With most of the structure of the site's forms being an almost navy-black, I wanted the main font to be an elegant and modern font to soften the design and maintain a visual balance, for this I sued Darker Grotesque from Google Fonts. Where I needed a little more definition on the profile page for the journal and gratitude buttons, I used Gill Sans as it looks a little stronger against a background image.
 
 # Technologies
+* [HTML5](https://en.wikipedia.org/wiki/HTML5) 
+
+* [CSS3](https://en.wikipedia.org/wiki/CSS) for site styling
+
+* [Bootstrap](https://getbootstrap.com/) for navbar and page layouts.
+
+* [Javascript](https://www.javascript.com/) for interactive styling elements
+
+* [JQuery](https://jquery.com/) a javascript library.
+ 
+* [Python](https://www.python.org/) for backend development.
+
+* [Flask](https://en.wikipedia.org/wiki/Flask_(web_framework)) a python framework.
+
+* [MongoDB](https://www.mongodb.com/) for a custom database to record journal and gratitude entries and users. 
+
+* [Google Fonts](https://fonts.google.com/) for the Yeseva One and Darker Grotesque fonts. 
+
+* [Git](https://git-scm.com/)
+
+* [Gitpod](https://www.gitpod.io/) for site development 
+
+* [Heroku](https://heroku.com/) for site deployment.
+
+* [Techsini](https://techsini.com/multi-mockup/index.php) for mock-up mobile/tablet/desktop images
+
+* [Balsamiq](https://balsamiq.com) for wireframes.
+
 
 # Features
 # Testing
