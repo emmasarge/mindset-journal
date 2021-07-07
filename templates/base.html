@@ -61,7 +61,7 @@
         </nav>
 
     </header>
-    <section>
+    <section class="flash">
         <!--where flash images will be contained-->
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -76,11 +76,11 @@
 
 
 
-    <div class="main-content">
+    <section class="main-content">
         {% block content %}
 
         {% endblock %}
-    </div>
+    </section>
 
     <footer>
 

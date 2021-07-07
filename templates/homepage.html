@@ -4,7 +4,7 @@
 <section class="homepage">
     <div class='journal-top container flex justify-content-center"'>
         <h1>Mindset</h1>
-        <span class="homepage-text">
+        <div class="homepage-text">
         <p>
             Mindset Journal is a free tool for you to use with your therapist to share what is on your mind. By recognising your mood, your gratitudes and your thoughts for the day, you can build a simple practice of self-care.
         </p>
@@ -15,15 +15,14 @@
         <p>
             You and your therapist will have access to your entries as your therapist follows your moods and activities to guide you in the best direction for productive healing.
         </p>
-    </span>
+    </div>
     <div class="row container justify-content-center">
-        <button class="btn col-sm" id="loginBtn">
-            <a href="{{ url_for('login') }}">
+        <button class="btn col-sm" id="loginBtn" onclick="window.location.href='{{ url_for('login') }}';">
                 Login
-            </a>
-        </button>
-        <button class="btn col-sm" id="regBtn">
-            <a href="{{ url_for('register') }}">
+            </button>
+       
+        
+        <button class="btn col-sm" id="regBtn" onclick="window.location.href='{{ url_for('register') }}';">
                 Register to Start
             </a>
         </button>
