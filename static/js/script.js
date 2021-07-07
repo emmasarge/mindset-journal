@@ -1,24 +1,31 @@
 // homepage buttons 
 
+// login button on homepage
+var loginBtn = document.getElementById('loginBtn');
+
 loginBtn.onmouseenter = function () {
     this.classList.add('hovered');
-}
+};
 
 loginBtn.onmouseleave = function () {
     setTimeout(function () {
         this.classList.remove('hovered');
     }.bind(this), 2000)
-}
+};
+
+// register button on homepage 
+
+var regBtn = document.getElementById('regBtn');
 
 regBtn.onmouseenter = function () {
     this.classList.add('hovered');
-}
+};
 
 regBtn.onmouseleave = function () {
     setTimeout(function () {
         this.classList.remove('hovered');
-    }.bind(this), 2000)
-}
+    }.bind(this), 2000);
+};
 
 
 // profile page CTA
@@ -33,10 +40,12 @@ function gratOr(){
 };
 
 // journal entry link
+
 function jouPro(){
     original  = document.getElementById("proJournalEntry").innerHTML;
     document.getElementById("proJournalEntry").innerHTML = "see what<br>you wrote...";
-}
+};
+
 function jouOr(){
     document.getElementById("proJournalEntry").innerHTML = original ;
 };
