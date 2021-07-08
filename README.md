@@ -291,4 +291,5 @@ os.environ.setdefault("MONGO_DBNAME", "[YOUR MONGODB NAME(mindsetjournal)]")
 
 ## Created by:
  * Emma Sargeant 2021
+ 
 
