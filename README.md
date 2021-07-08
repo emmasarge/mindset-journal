@@ -6,7 +6,7 @@ Using Python, flask, MongoDB, create and app using CRUD. Mindset Journal is a gr
 [You can view the live project here](http://mindset-journal.herokuapp.com/homepage)
 
 ![Website Overview](./static/readme-docs/homepagepreview.png)
-[Login Page](./static/readme-docs/login.preview.png)
+[Login Page](./static/readme-docs/loginpreview.png)
 
 ---
 ## Contents 
@@ -291,5 +291,5 @@ os.environ.setdefault("MONGO_DBNAME", "[YOUR MONGODB NAME(mindsetjournal)]")
 
 ## Created by:
  * Emma Sargeant 2021
- 
+
 
