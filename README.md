@@ -285,3 +285,10 @@ os.environ.setdefault("MONGO_DBNAME", "[YOUR MONGODB NAME(mindsetjournal)]")
 * BenKevLead was a huge help for troubleshooting.
 * Jim Lynx was helpful for encourament and emotional support
 
+### Influence
+
+* Tim Kavanuagh's 'Task Manager' exercise was very helpful in the creation of this project to better understand the power of Flask and Python and Jinja.
+
+## Created by:
+ * Emma Sargeant 2021
+
