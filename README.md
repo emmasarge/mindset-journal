@@ -191,9 +191,8 @@ For a modern, editorial effect, I looked at clean and effective sites and was in
 * Images 
 
 # Testing
+* [Development Testing Here](./static/readme-docs/Mindset-testing.pdf)
 
-[Development Testing](./static/readme-docs/mindsettests.pdf)
-[Development Testing](./static/readme-docs/Mindset-testing.pdf)
 * I intermittently used [Google Dev Tools](https://developers.google.com/web/tools/chrome-devtools) to double check coding and debugging.
 *  Validation testing to double check coding accuracy was done with:
   1) [W3S CSS Validator](https://jigsaw.w3.org/css-validator/) 
@@ -211,6 +210,78 @@ For a modern, editorial effect, I looked at clean and effective sites and was in
         * Safari
         * Internet Explorer
         * Firefox
+
+  ### Feedback from Testing Users
+
+* The gratitude page to write gratitudes doesn't translate well on mobile **FIXED**
+* Admin log-in can't tell who wrote which entry **FIXED**
+* Edit and delete buttons aren't visible on mobile view for entry collection and gratitude collection **FIXED**
+
 # Bugs
+
+* Navbar drop down wasn't working for mobile view, redid it with Bootstrap.
+* Searchbar for journal entry wasn't working, I hadn't installed it properly, solved this with perspective on Slack.
+* CSS not working for transition, incorrectly typed 2x instead of 2px. 
+* Columns were not working for gratitude.html so I added a row and used bootstrap to define the columns for responsive view.
+* Heroku wasn't connecting with MongoDB, there was an extra quotation mark in the MONGO_URI in the set up on mongodb.com which I corrected.
+* Login for only users to see their entries and admin to see entries wasn't looping. Changed syntax '| or admin'..
+
 # Deployment
+
+I deployed this project to Heroku in its initial stages in Gitpod. I also pushed the initial commit to Github as soon as possible to record all changes and monitor the function of the site as I was working on it.
+
+### Deployment:
+
+* Open repository in Gitpod and run the command pip3 freeze --local > requirements.txt - this creates a txt file that Heroku reads to check which dependencies are in use on the site.
+* Create a Procfile. In CLI, type echo web: python app.py > Procfile. app.py is the python file the app is running on. Push these changes to GitHub.
+* Log into Heroku and select 'Create new app'. Complete from with the name of your app, the appropriate region (EU), and click 'Create app'.
+* Find the 'Deploy' tab on the dashboard and select Github, then search for your repository (mindset-journal) and 'connect'.
+* Click 'Settings' tab, click 'Reveal Config Vars'. Compelet the following:
+
+IP:	0.0.0.0
+MONGO_DBNAME:	mongodatabase_name
+MONGO_URI	mongodb+srv://BirdDog:<password>@myfirstcluster.w6fso.mongodb.net/<database>?retryWrites=true&w=majority
+PORT	5000
+SECRET_KEY	my_secret_key
+
+* Click 'Deploy' tab and 'Enable Automatic Deploys', check the master branch from Github is connected.
+* Click 'Deploy Branch'. Heroku will build the app. You can monitor the progress in the 'Latest Activity' of the overview. This is good to review if there are any issues in deployment.
+
+* Once the build has been completed via Heroku, click 'Open App'. The site should be open in another browser tab.
+
+### Cloning
+
+* Go to the repository page on Github.
+* Click on 'Code' dropdown and copy the command available for 'GitHub CLI'.
+* Paste the command into the terminal on your IDE like VSCODE or GitPod.
+* Install the dependencies present in requirements.txt by running pip3 install -r requirements.txt in the terminal.
+* Create a MongoDB database reflecting on the appropriate collections for the site to match. ie users, journal, gratitudes and their components.
+* Create an environment python file and include the following:
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "[SECRET KEY]")
+os.environ.setdefault("MONGO_URI", "[MONGO URI"])
+os.environ.setdefault("MONGO_DBNAME", "[YOUR MONGODB NAME(mindsetjournal)]")
+* You need to create a secret key and retrieve the URI code from MongoDb when you connect your collection.
+
+* Run the preview by running 'python3 app.py' in the terminal.
+* The env.py file should be in the .gitignore file to hide secure information so it is NOT pushed to GitHub.
+
+
 # Credits
+
+### Images:
+
+* [Tree background](https://www.minimalstockphotos.com/nature/w3tvwbtkhr9qgauaggb9orkkmpfvgl)
+
+* [Wool texture](https://www.pexels.com/photo/beige-fur-317333/)
+
+* [Abstract paintings](https://www.pexels.com/search/abstract%20art/)
+
+* [Linen Textures](https://www.pexels.com/search/textile/)
+
+### Slack friends:
+
+* BenKevLead was a huge help for troubleshooting.
+* Jim Lynx was helpful for encourament and emotional support
+
