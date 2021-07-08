@@ -1,5 +1,3 @@
-// homepage buttons 
-
 // login button on homepage
 var loginBtn = document.getElementById('loginBtn');
 

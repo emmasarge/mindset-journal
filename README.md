@@ -188,9 +188,29 @@ For a modern, editorial effect, I looked at clean and effective sites and was in
 * Python backend functionality
 * Custom MongoDB database for entries and users
 * Create/Read/Update/Delete functionality
-* Images
+* Images 
 
 # Testing
+
+[Development Testing](./static/readme-docs/mindsettests.pdf)
+[Development Testing](./static/readme-docs/Mindset-testing.pdf)
+* I intermittently used [Google Dev Tools](https://developers.google.com/web/tools/chrome-devtools) to double check coding and debugging.
+*  Validation testing to double check coding accuracy was done with:
+  1) [W3S CSS Validator](https://jigsaw.w3.org/css-validator/) 
+  2) [W3S Html Validator](https://validator.w3.org/)  
+  3) [Javascript Validator](https://beautifytools.com/javascript-validator.php)
+  
+ * Sent friends and family link to site to check on their variety of devices including:
+		* Apple iPhone 6, XS, 12
+		* Apple iPad 5th Generation
+   		* Samsung Galaxy
+		* Apple MacBook Pro
+		* Apple MacBook Air
+        * Windows Operated Laptop/PC
+        * Chrome
+        * Safari
+        * Internet Explorer
+        * Firefox
 # Bugs
 # Deployment
 # Credits
