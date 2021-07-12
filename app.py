@@ -160,7 +160,7 @@ def register():
 
         if existing_user:
             flash(u"Username already exists")
-            return redirect(url_for("register"))
+            return redirect(url_for("login"))
 
         register = {	
             "username": request.form.get("username").lower(),
@@ -171,7 +171,7 @@ def register():
         # Put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("homepage", username=session["user"]))
+        return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
 
