@@ -711,4 +711,26 @@ nav {
 .hovered {
     background: #d4e1e2 !important;
 }
+/*--------Modal for journal and gratitude collections-------*/
 
+.delete-e {
+    text-transform: uppercase;
+}
+
+.delete-e:hover {
+    text-decoration: underline;
+} 
+.delete-btn {
+    border: 1px solid #0d1922;
+  
+}
+.delete-btn a {
+    text-decoration: none;
+}
+.delete-btn:hover{
+    background-color: #82b0b4;
+    border: none;
+}
+.delete-btn a:hover{
+    color: #d4e1e2!important;
+}
