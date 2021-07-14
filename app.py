@@ -28,13 +28,13 @@ def homepage():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
-    journal = list(mongo.db.journal.find({"$text": {"$search": query }}))
+    journal = list(mongo.db.journal.find({"$text": {"$search": query}}))
     return render_template("entry_collection.html", journal=journal)
 
 
 @app.route("/entry_collection")
 def entry_collection():
-    if session.get('user'):
+    if "user" in session:
         journal = list(mongo.db.journal.find())
         return render_template("entry_collection.html", journal=journal)
 
@@ -46,109 +46,137 @@ def entry_collection():
 # write journal entry
 @app.route("/journal", methods=["GET", "POST"])
 def journal():
-    if request.method == "POST":
-        journal = {
-            "date": request.form.get("date"),
-            "title": request.form.get("title"),
-            "mood": request.form.get("mood"),
-            "text": request.form.get("text"),
-            "created_by": session["user"]
-            }
-        mongo.db.journal.insert_one(journal)
-        flash("Journal entry added")
-        return redirect(url_for("entry_collection"))
+    if "user" in session:
+        if request.method == "POST":
+            journal = {
+                "date": request.form.get("date"),
+                "title": request.form.get("title"),
+                "mood": request.form.get("mood"),
+                "text": request.form.get("text"),
+                "created_by": session["user"]
+                }
+            mongo.db.journal.insert_one(journal)
+            flash("Journal entry added")
+            return redirect(url_for("entry_collection"))
 
-    date = mongo.db.journal.find().sort("date", 1)
-    return render_template("journal.html", date=date)
-
-
-# edit journal entry
-@app.route("/edit_journal/<journal_id>", methods=["GET", "POST"])
-def edit_journal(journal_id):
-    if request.method == "POST":
-        submit = {
-            "date": request.form.get("date"),
-            "title": request.form.get("title"),
-            "mood": request.form.get("mood"),
-            "text": request.form.get("text"),
-            "created_by": session["user"]
-            }
-
-        mongo.db.journal.update({"_id": ObjectId(journal_id)}, submit)
-        flash("Your journal entry has been updated")
-        
-    journal = mongo.db.journal.find_one({"_id": ObjectId(journal_id)})
-    title = mongo.db.title.find().sort("title", 1)
-    return render_template("edit_journal.html", journal=journal, title=title)
-
-
-# delete journal entry
-@app.route("/delete_journal/<journal_id>")
-def delete_journal(journal_id):
-    mongo.db.journal.remove({"_id": ObjectId(journal_id)})
-    flash("Your entry has been deleted")
-    return redirect(url_for("entry_collection"))
-
-
-# write gratitude entry
-@app.route("/gratitude", methods=["GET", "POST"])
-def gratitude():
-    if request.method == "POST":
-        gratitude = {
-            "date": request.form.get("date"),
-            "grat_one": request.form.get("grat_one"),
-            "grat_two": request.form.get("grat_two"),
-            "grat_three": request.form.get("grat_three"),
-            "created_by": session["user"]
-            }
-        mongo.db.gratitudes.insert_one(gratitude)
-        flash("Today's gratitudes have been added")
-        return redirect(url_for("gratitude_collection", username=session["user"]))
-
-    date = mongo.db.gratitudes.find().sort("date", 1)
-    return render_template("gratitude.html", date=date) 
-
-
-# See the collection of past gratitudes
-@app.route("/gratitude_collection")
-def gratitude_collection():
-    if session.get('user'):
-        gratitudes = list(mongo.db.gratitudes.find())
-        return render_template("gratitude_collection.html",
-            gratitudes=gratitudes)
-
+        date = mongo.db.journal.find().sort("date", 1)
+        return render_template("journal.html", date=date)
     else:
         flash("Please Log In or Register to access the site")
         return redirect(url_for("login"))
 
 
+# edit journal entry
+@app.route("/edit_journal/<journal_id>", methods=["GET", "POST"])
+def edit_journal(journal_id):
+    if "user" in session:
+        if request.method == "POST":
+            submit = {
+                "date": request.form.get("date"),
+                "title": request.form.get("title"),
+                "mood": request.form.get("mood"),
+                "text": request.form.get("text"),
+                "created_by": session["user"]
+                }
+
+            mongo.db.journal.update({"_id": ObjectId(journal_id)}, submit)
+            flash("Your journal entry has been updated")
+            
+        journal = mongo.db.journal.find_one({"_id": ObjectId(journal_id)})
+        title = mongo.db.title.find().sort("title", 1)
+        return render_template("edit_journal.html", journal=journal,
+                               title=title)
+    else:
+        flash("Please Log In or Register to access the site")
+        return redirect(url_for("login"))
+
+
+# delete journal entry
+@app.route("/delete_journal/<journal_id>")
+def delete_journal(journal_id):
+    if "user" in session:
+        mongo.db.journal.remove({"_id": ObjectId(journal_id)})
+        flash("Your entry has been deleted")
+        return redirect(url_for("entry_collection"))
+    else:
+        flash("Please Log In or Register to access the site")
+        return redirect(url_for("login"))
+
+
+# write gratitude entry
+@app.route("/gratitude", methods=["GET", "POST"])
+def gratitude():
+    if "user" in session:
+        if request.method == "POST":
+            gratitude = {
+                "date": request.form.get("date"),
+                "grat_one": request.form.get("grat_one"),
+                "grat_two": request.form.get("grat_two"),
+                "grat_three": request.form.get("grat_three"),
+                "created_by": session["user"]
+                }
+            mongo.db.gratitudes.insert_one(gratitude)
+            flash("Today's gratitudes have been added")
+            return redirect(url_for("gratitude_collection", username=session[
+                "user"]))
+
+        date = mongo.db.gratitudes.find().sort("date", 1)
+        return render_template("gratitude.html", date=date)
+    else:
+        flash("Please Log In or Register to access the site")
+        return redirect(url_for("login"))
+
+
+# See the collection of past gratitudes
+@app.route("/gratitude_collection")
+def gratitude_collection():
+    if "user" in session:
+        gratitudes = list(mongo.db.gratitudes.find())
+        return render_template("gratitude_collection.html", 
+                               gratitudes=gratitudes)
+
+    else:
+        flash("Please Log In or Register to access the site")
+        return redirect(url_for("login"))
+       
+
 # edit gratitude entry
 @app.route("/edit_gratitudes/<gratitudes_id>", methods=["GET", "POST"])
 def edit_gratitudes(gratitudes_id):
-    if request.method == "POST":
-        submit = {
-            "date": request.form.get("date"),
-            "grat_one": request.form.get("grat_one"),
-            "grat_two": request.form.get("grat_two"),
-            "grat_three": request.form.get("grat_three"),
-            "created_by": session["user"]
-            }
+    if "user" in session:
+        if request.method == "POST":
+            submit = {
+                "date": request.form.get("date"),
+                "grat_one": request.form.get("grat_one"),
+                "grat_two": request.form.get("grat_two"),
+                "grat_three": request.form.get("grat_three"),
+                "created_by": session["user"]
+                }
 
-        mongo.db.gratitudes.update({"_id": ObjectId(gratitudes_id)}, submit)
-        flash("Your gratitudes entry has been updated")
+            mongo.db.gratitudes.update({"_id": ObjectId(gratitudes_id)},
+                                       submit)
+            flash("Your gratitudes entry has been updated")
 
-    gratitudes = mongo.db.gratitudes.find_one({"_id": ObjectId(gratitudes_id)})
-    date = mongo.db.date.find().sort("date", 1)
-    return render_template(
-        "edit_gratitudes.html", gratitudes=gratitudes, date=date)
+        gratitudes = mongo.db.gratitudes.find_one({"_id": ObjectId(
+            gratitudes_id)})
+        date = mongo.db.date.find().sort("date", 1)
+        return render_template(
+            "edit_gratitudes.html", gratitudes=gratitudes, date=date)
+    else:
+        flash("Please Log In or Register to access the site")
+        return redirect(url_for("login"))
+
 
 # delete gratitude entry
 @app.route("/delete_gratitudes/<gratitudes_id>")
 def delete_gratitudes(gratitudes_id):
-    mongo.db.gratitudes.remove({"_id": ObjectId(gratitudes_id)})
-    flash("Your gratitudes have been deleted")
-    return redirect(url_for("gratitude_collection"))
-
+    if "user" in session:
+        mongo.db.gratitudes.remove({"_id": ObjectId(gratitudes_id)})
+        flash("Your gratitudes have been deleted")
+        return redirect(url_for("gratitude_collection"))
+    else:
+        flash("Please Log In or Register to access the site")
+        return redirect(url_for("login"))
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -186,7 +214,7 @@ def login():
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(existing_user["password"], request.form.get
-            ("password")):
+                                   ("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}!".format(
                         request.form.get("username")))
@@ -209,13 +237,19 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab session's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+    current_user = mongo.db.users.find_one(
+        {"username": session["user"]})["_id"]
+    profile_user = mongo.db.users.find_one({"username": username})["_id"]
 
-    if session['user']:
-        return render_template("profile.html", username=username)
-
-    return redirect(url_for("login"))
+    if "user" in session:
+        if current_user == profile_user:
+            return render_template("profile.html", username=username)
+        else:
+            flash("You are not authorised to be on this page.")
+            return redirect(url_for("homepage"))
+    else:
+        flash("You must be logged in to have acccess to this page.")
+        return redirect(url_for("login"))
 
 
 # logout
