@@ -81,7 +81,7 @@ def edit_journal(journal_id):
 
             mongo.db.journal.update({"_id": ObjectId(journal_id)}, submit)
             flash("Your journal entry has been updated")
-            
+      
         journal = mongo.db.journal.find_one({"_id": ObjectId(journal_id)})
         title = mongo.db.title.find().sort("title", 1)
         return render_template("edit_journal.html", journal=journal,
@@ -132,13 +132,13 @@ def gratitude():
 def gratitude_collection():
     if "user" in session:
         gratitudes = list(mongo.db.gratitudes.find())
-        return render_template("gratitude_collection.html", 
+        return render_template("gratitude_collection.html",
                                gratitudes=gratitudes)
 
     else:
         flash("Please Log In or Register to access the site")
         return redirect(url_for("login"))
-       
+
 
 # edit gratitude entry
 @app.route("/edit_gratitudes/<gratitudes_id>", methods=["GET", "POST"])
@@ -190,7 +190,7 @@ def register():
             flash(u"Username already exists")
             return redirect(url_for("login"))
 
-        register = {	
+        register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
@@ -229,7 +229,7 @@ def login():
             # username doesn't exist
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
-            
+                        
     return render_template("login.html")
 
 
