@@ -81,7 +81,7 @@ def edit_journal(journal_id):
 
             mongo.db.journal.update({"_id": ObjectId(journal_id)}, submit)
             flash("Your journal entry has been updated")
-      
+
         journal = mongo.db.journal.find_one({"_id": ObjectId(journal_id)})
         title = mongo.db.title.find().sort("title", 1)
         return render_template("edit_journal.html", journal=journal,
@@ -229,7 +229,7 @@ def login():
             # username doesn't exist
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
-                        
+
     return render_template("login.html")
 
 
