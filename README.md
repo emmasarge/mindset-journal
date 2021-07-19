@@ -208,6 +208,7 @@ For a modern, editorial effect, I looked at clean and effective sites and was in
   1) [W3S CSS Validator](https://jigsaw.w3.org/css-validator/) 
   2) [W3S Html Validator](https://validator.w3.org/)  
   3) [Javascript Validator](https://beautifytools.com/javascript-validator.php)
+  4) [PEP8 Compliance](http://pep8online.com/checkresult)
   
  * Sent friends and family link to site to check on their variety of devices including:
 		* Apple iPhone 6, XS, 12
