@@ -190,6 +190,13 @@ For a modern, editorial effect, I looked at clean and effective sites and was in
 * Create/Read/Update/Delete functionality
 * Images 
 
+# Future Features
+* I would like to make several admin accounts for each therapist and to find a way that users would register to that admin account. The therapist would have the admin account but I want them to see only their patients. 
+* I would like to remove the buttons on the homepage for when someone is logged in.
+* I would like to enforce more security for confidentiality so patient information is not compromised.
+* Maybe I would add a way to add pictures to journal entries if patients are more visually influenced in how they describe their days.
+
+
 # Testing
 * [Development Testing Here](./static/readme-docs/Mindset-testing.pdf)
 
@@ -284,6 +291,8 @@ os.environ.setdefault("MONGO_DBNAME", "[YOUR MONGODB NAME(mindsetjournal)]")
 
 * BenKevLead was a huge help for troubleshooting.
 * Jim Lynx was helpful for encourament and emotional support
+
+* Mentor Chris has been helpful and encouraging on this project.
 
 ### Influence
 
