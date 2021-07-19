@@ -3,6 +3,9 @@
 ## Objective:
 ---
 Using Python, flask, MongoDB, create and app using CRUD. Mindset Journal is a gratitude journal based on recent requirements from a therapist/health coach. Mindset Journal provides an accessible viewpoint to journal 3 positive things every day, write notes or a journal entry and offer a public affirmation. The user will be able to privately access their entries with their username, they will have the option for their affirmations to be public. The user can read, update and delete their entries. The goal is to create a community with affirmations and to provide a tool for my therapist to give her clients to consistently collect three positive gratitudes a day. The gratitudes and journal entries can be referenced by the users at their appointment. 
+
+
+
 [You can view the live project here](http://mindset-journal.herokuapp.com/homepage)
 
 ![Website Overview](./static/readme-docs/homepagepreview.png)
@@ -40,7 +43,7 @@ Using Python, flask, MongoDB, create and app using CRUD. Mindset Journal is a gr
 
 # UX
 ### Project Objectives
-Mindset is an accessible app for therapists and health coaches to use with their clients. It can also be used by anyone for their way to journal and practice gratitude and follow their entries over a period of time. The website provides privacy so no one other than the admin can access the entries. The secondary purpose of this project is to demonstrate my understanding of backend technologies using Python, Flask and MongoDB.
+Mindset is an accessible app for therapists and health coaches to use with their clients. It can also be used by anyone for their way to journal and practice gratitude and follow their entries over a period of time. The website provides privacy so no one other than the admin can access the entries. The secondary purpose of this project is to demonstrate my understanding of backend technologies using Python, Flask and MongoDB. Please contact me directly at emmasargeant206@gmail.com for admin permissions.
 
 ### User Goals 
 ---
@@ -224,6 +227,7 @@ For a modern, editorial effect, I looked at clean and effective sites and was in
 * Admin log-in can't tell who wrote which entry **FIXED**
 * Edit and delete buttons aren't visible on mobile view for entry collection and gratitude collection **FIXED**
 
+
 # Bugs
 
 * Navbar drop down wasn't working for mobile view, redid it with Bootstrap.
@@ -232,6 +236,7 @@ For a modern, editorial effect, I looked at clean and effective sites and was in
 * Columns were not working for gratitude.html so I added a row and used bootstrap to define the columns for responsive view.
 * Heroku wasn't connecting with MongoDB, there was an extra quotation mark in the MONGO_URI in the set up on mongodb.com which I corrected.
 * Login for only users to see their entries and admin to see entries wasn't looping. Changed syntax '| or admin'..
+* Deleting only the top journal or gratitude entry, fixed this with Jinja loop so specific entries can be deleted **FIXED**
 
 # Deployment
 
