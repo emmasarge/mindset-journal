@@ -1,31 +1,3 @@
-// login button on homepage
-var loginBtn = document.getElementById('loginBtn');
-
-loginBtn.onmouseenter = function () {
-    this.classList.add('hovered');
-};
-
-loginBtn.onmouseleave = function () {
-    setTimeout(function () {
-        this.classList.remove('hovered');
-    }.bind(this), 2000)
-};
-
-// register button on homepage 
-
-var regBtn = document.getElementById('regBtn');
-
-regBtn.onmouseenter = function () {
-    this.classList.add('hovered');
-};
-
-regBtn.onmouseleave = function () {
-    setTimeout(function () {
-        this.classList.remove('hovered');
-    }.bind(this), 2000);
-};
-
-
 // profile page CTA
 
 // gratitude entry link
