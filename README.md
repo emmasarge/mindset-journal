@@ -100,34 +100,34 @@ The Mindset Journal site was planned out with mockup wireframes using Balsamiq. 
 ## Layout & Wireframes
 
 #### Homepage       
-* [Home desktop](/.static/wireframes/homepage.png )
+* [Home desktop, mobile and tablet](./static/wireframes/homepage.png)
 ​
 #### Login
-* [Home desktop](./static/wireframes/login.html.png)
+* [Login.html desktop, mobile and tablet](./static/wireframes/login.png)
 ​
 #### Register
-* [Home desktop](./static/wireframes/register.html.png)
+* [Register.html desktop, mobile and tablet](./static/wireframes/register.png)
 
 #### Profile
-* [Home desktop](./static/wireframes/profile.html.png)
+* [Profile.html desktop, mobile and tablet](./static/wireframes/profile-page.png)
 
 #### Write Journal Entries
-* [Home desktop](./static/wireframes/journal.html.png)
+* [Journal.html desktop, mobile and tablet](./static/wireframes/journal.png)
 ​
 #### Edit Journal Entries
-* [Home desktop](./static/wireframes/edit_journal.html.png)
+* [Edit_journal.html desktop, mobile and tablet](./static/wireframes/edit_journal.png)
 
 #### Entry collection
-* [Home desktop](./static/wireframes/entry_collection.html.png)
+* [Entry_collection.html desktop, mobile and tablet](./static/wireframes/entry_collection.png)
 
 #### Write Gratitude Journal
-* [Home desktop](./static/wireframes/gratitude.html.png)
+* [Gratitude.html desktop, mobile and tablet](./static/wireframes/gratitude.png)
 
 #### Edit Gratitude Journal
-* [Home desktop](./static/wireframes/edit_gratitude.html.png)
+* [Edit_gratitude.html desktop, mobile and tablet](./static/wireframes/edit_gratitude.html.png)
 
 #### Gratitude Journal 
-* [Home desktop](./static/wireframes/gratitude_collection.html.png)
+* [Gratitude_colleciton.html desktop, mobile and tablet](./static/wireframes/gratitude_collection.html.png)
 
 ### Colors
 
