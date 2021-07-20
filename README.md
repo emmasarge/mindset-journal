@@ -193,6 +193,34 @@ For a modern, editorial effect, I looked at clean and effective sites and was in
 * Create/Read/Update/Delete functionality
 * Images 
 
+* Database Schema
+___
+
+The mongoDB data base was created to accomodate individual users, their journals and gratitudes. The idea is the users have access to their own gratitude and journal entries for personal use and for their therapy sessions. By recording dates, the user can see how their mindset shifts as they continue to use the app and practice journaling and gratitudes. For the journal, to log moods, this helps the user to remember how they were feeling when they wrote their entry and this may also alert the therapist id the mood is low. 
+The collections looks as follows:
+
+1. Users
+  - username
+  - id
+  - password (security hashed)
+
+2. Journal
+  - date
+  - title
+  - mood
+  - text (journal entry input)
+  - id
+  - created_by 
+
+3. Gratitudes
+  - date
+  - grat_one
+  - grat_two
+  - grat_three
+  - id
+  - created_by 
+
+
 # Future Features
 * I would like to make several admin accounts for each therapist and to find a way that users would register to that admin account. The therapist would have the admin account but I want them to see only their patients. 
 * I would like to remove the buttons on the homepage for when someone is logged in.
@@ -201,8 +229,8 @@ For a modern, editorial effect, I looked at clean and effective sites and was in
 
 
 # Testing
-* [Development Testing Here](./static/readme-docs/Mindset-testing.pdf)
-* [PEP8 Testing Here](./static/readme-docs/PEP8.png)
+* [Development Testing Here](./static/readme-docs/mindset-testing.pdf)
+* [PEP8 Testing Here](./static/readme-docs/pep8.png)
 
 * I intermittently used [Google Dev Tools](https://developers.google.com/web/tools/chrome-devtools) to double check coding and debugging.
 *  Validation testing to double check coding accuracy was done with:
@@ -254,7 +282,7 @@ I deployed this project to Heroku in its initial stages in Gitpod. I also pushed
 
 IP:	0.0.0.0
 MONGO_DBNAME:	mongodatabase_name
-MONGO_URI	mongodb+srv://BirdDog:<password>@myfirstcluster.w6fso.mongodb.net/<database>?retryWrites=true&w=majority
+MONGO_URI	mongodb+srv://<username>:<password>@myfirstcluster.w6fso.mongodb.net/<database>?retryWrites=true&w=majority
 PORT	5000
 SECRET_KEY	my_secret_key
 
